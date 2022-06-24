@@ -1,0 +1,33 @@
+{
+  "name": "manoj-md",
+  "version": "1.0.0",
+  "description": "World Best Whatsapp Bot",
+  "main": "./index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ravindu Manoj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ravindu01manoj/Manoj-Md/issues"
+  },
+  "homepage": "https://github.com/ravindu01manoj/Manoj-Md#readme",
+  "license": "ISC",
+  "dependencies": {
+    "@adiwajshing/baileys": "git+https://github.com/ravindu01manoj/baileys",
+    "axios": "^0.26.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "form-data": "^4.0.0",
+    "got": "11.8.3",
+    "langs": "^2.0.0",
+    "jimp": "^0.16.1",
+    "node-fetch": "2",
+    "node-tesseract-ocr": "1.0.0",
+    "ravi-cli": "1.0.1",
+    "simple-git": "2.48.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravindu01manoj/Manoj-Md.git"
+  }
+}
