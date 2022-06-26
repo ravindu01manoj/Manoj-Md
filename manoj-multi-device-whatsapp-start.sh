@@ -2,7 +2,7 @@
 #
 # Telegram: https://t.me/RavinduManoj
 # Facebook: https://www.facebook.com/ravindu.manoj.79
-# Licensed under the  GPL-3.0 License;
+# Youtube: https://youtube.com/c/TechToFuture
 #
 # Coded By Ravindu Manoj
 . /root/manoj-multi-device-whatsapp-pre-data.sh

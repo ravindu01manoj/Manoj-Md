@@ -40,7 +40,14 @@ Manoj.apk.start = async(core) => {
 		}
 
 		await core.send(string().apk.upload)
-		await core.mediasend('document', application.buffer, mimetype.apk, {}, false, application.name.cut('APK')[0].replace(/ /g, '+') + 'by+manoj+md.apk')
+		var FileName = application.name.cut('APK')[0].replace(/ /g, '+') + 'by+manoj+md.apk'
+		await core.downloadUrl(application.buffer, FileName, async() => {
+			await core.mediasend('document', FileName, mimetype.apk, {}, false, FileName)
+			return removefile(FileName)
+		}, async() => {
+			await core.reply(string().apk.notfound)
+			return removefile(FileName)
+		})
 		var appInfo = await apkdownlod.getAppInfo(appId)
 		var msg = {}
 		msg.img = appInfo.icon

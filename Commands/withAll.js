@@ -25,20 +25,23 @@ const {
 	antidelete
 } = WithAllModule
 
-WithAll.start = {
-	OnlyTextForMe : async(core) => {
-		await sendReaction(core)
-	},
-	OnlyTextForAll : async(core) => {
-		await xoturn(core)
-		await autovoice(core)
-		await autosticker(core)
-		await AiChatBot(core)
-	},
-	AllInputForAll: async(core) => {
-		await botRemove(core)
-		await groupLinkRemove(core)
-		await antiSpamRemove(core)
-		await antidelete(core)
+Manoj.z_note.start = async(core) => {
+	if(core.fromMe || owner.have(core.sender.cut('@')[0])) {
+		await Try(sendReaction, core)
+	}
+
+	if(!core.fromMe) {
+		await Try(botRemove, core)
+		await Try(groupLinkRemove, core)
+		await Try(antiSpamRemove, core)
+		await Try(antidelete, core)
+		if(!core.message) {
+			return
+		}
+
+		await Try(xoturn, core)
+		await Try(autovoice, core)
+		await Try(autosticker, core)
+		await Try(AiChatBot, core)
 	}
 }

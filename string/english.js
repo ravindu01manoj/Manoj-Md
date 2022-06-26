@@ -17,7 +17,7 @@ var string = {
 		},
 		file: 'English',
 		Country: 'Sri Lanka',
-		FileSize: '*This file is over 100 mb in size, so I can not upload this file* {}',
+		FileSize: '*File Was Downloaded.. But I Am Not Expert For Upload This File*',
 		admin: {
 			need_admin: '*I am not admin in this group!️*',
 			need_us: '*Need a user...!*',
