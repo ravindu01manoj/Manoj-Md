@@ -73,8 +73,8 @@ Manoj.wasted.start = Manoj.triggered.start = Manoj.jail.start = Manoj.passed.sta
 	if(data.buffer && data.type === 'image') {
 		var dt = await core.reply(string().sticker.download)
 		fs.writeFileSync('./temp/stick.jpg', data.buffer)
-		var type = core.command === 'triggered' ? 'video' : 'image'
-		var buff = await superCanvasImageEditor(core.command, await TelegraPh('./temp/stick.jpg'))
+		var type = core.command.toLowerCase() === 'triggered' ? 'video' : 'image'
+		var buff = await superCanvasImageEditor(core.command.toLowerCase(), await TelegraPh('./temp/stick.jpg'))
 		var data_buff = await core.bufferType(buff)
 		await core.mediasend('sticker', data_buff.buffer, {
 			type: type,

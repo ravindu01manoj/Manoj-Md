@@ -47,10 +47,11 @@ Manoj.yts.start = async(core) => {
 }
 
 Manoj.song.start = Manoj.video.start = async(core) => {
+	var cmds = core.command === 'සින්දු' ? 'song' : core.command === 'වීඩියෝ' ? 'video' : core.command.toLowerCase()
 	try {
 		var type = youtube.getType(core.input)
 		if(!type.type) {
-			return await core.reply(string().youtube[core.command].need)
+			return await core.reply(string().youtube[cmds].need)
 		}
 
 		var vid = type.key
@@ -59,13 +60,13 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 			vid = search[0].videoId
 		}
 
-		var data = await youtube.SearchById(vid)
+		var data = await youtube.SearchById(vid, cmds)
 
 		var msg = {}
 		msg.img = data.thumbnail
-		msg.text = string().youtube[core.command].data.bind(data.url, data.title, data.Channel, data.view, data.category, data.likes, data.desc)
+		msg.text = string().youtube[cmds].data.bind(data.url, data.title, data.Channel, data.view, data.category, data.likes, data.desc)
 
-		var dbtn = await core.buttongen(await youtube.gen(data, core.command))
+		var dbtn = await core.buttongen(await youtube.gen(data, cmds))
 		msg.button = dbtn.button
 		if(dbtn.type) {
 			return await core.sendbuttonimg(msg)
@@ -104,7 +105,7 @@ Manoj.ytd.start = async(core) => {
 			vid = search[0].videoId
 		}
 
-		var data = await youtube.SearchById(vid)
+		var data = await youtube.SearchById(vid, core.command.toLowerCase())
 		var list = await youtube.gen(data, 'list')
 		var msg = {}
 		msg.title = string().youtube.ytd.title
