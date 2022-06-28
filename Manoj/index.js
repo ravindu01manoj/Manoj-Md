@@ -90,6 +90,13 @@ module.exports = {
 		help: "attpD example",
 		react: "🏖️"
 	},
+	banchat: {
+		command: [ "banchat" ],
+		type: "private",
+		category: "profile",
+		desc: string().chat_settings.banchat_desc,
+		react: "👑"
+	},
 	block: {
 		command: [ "block" ],
 		type: "private",
@@ -528,10 +535,11 @@ module.exports = {
 		command: [ "remove" ],
 		type: "private",
 		category: "profile",
-		react: "🧽"
+		desc: string().chat_settings.remove_desc,
+		react: "👑"
 	},
 	removebg: {
-		command: [ "removebg" ],
+		command: [ "rbg" ],
 		type: type_bot,
 		category: "main",
 		desc: string().removebg.desc,
@@ -643,6 +651,20 @@ module.exports = {
 		category: "download",
 		desc: string().bcope.desc,
 		react: "🗒️"
+	},
+	superchat: {
+		command: [ "superchat" ],
+		type: "private",
+		category: "profile",
+		desc: string().chat_settings.superchat_desc,
+		react: "👑"
+	},
+	superuser: {
+		command: [ "superuser" ],
+		type: "private",
+		category: "profile",
+		desc: string().chat_settings.superuser_desc,
+		react: "👑"
 	},
 	tag: {
 		command: [ "tag" ],

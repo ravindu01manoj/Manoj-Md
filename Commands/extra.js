@@ -47,22 +47,23 @@ Manoj.link.start = async(core) => {
 			return await core.reply('*I Am Not Expert For Download This Link*')
 		}
 
-		linkdata.fileName = './temp/' + (linkdata.fileName ? linkdata.fileName : ('upload-from-url.' + (linkdata.ext || 'bin')))
+		linkdata.fileName = linkdata.fileName ? linkdata.fileName : ('upload-from-url.' + (linkdata.ext || 'bin'))
+		var FileName = randomName() + (linkdata.ext || '.bin')
 		await core.delete(dl)
-		await core.downloadUrl(core.input, linkdata.fileName, async() => {
+		await core.downloadUrl(core.input, FileName, async() => {
 			if(linkdata.mime.cut('/')[0] == 'image') {
-				return await core.mediasend('image', linkdata.fileName, dataDb.caption.setup(core))
+				return await core.mediasend('image', FileName, dataDb.caption.setup(core))
 			}
 
 			if(linkdata.mime.cut('/')[0] == 'video') {
-				return await core.mediasend('video', linkdata.fileName, dataDb.caption.setup(core))
+				return await core.mediasend('video', FileName, dataDb.caption.setup(core))
 			}
 
-			await core.mediasend('document', linkdata.fileName, linkdata.mime, {}, false, linkdata.fileName.replace('./temp/', ''))
-			return removefile(linkdata.fileName)
+			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
+			return removefile(FileName)
 		}, async() => {
 			await core.reply(string().link.err)
-			return removefile(linkdata.fileName)
+			return removefile(FileName)
 		})
 
 	} catch(e) {

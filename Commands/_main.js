@@ -8,7 +8,7 @@ Youtube: https://youtube.com/c/TechToFuture
 Coded By Ravindu Manoj
 */
 const { Rate, GetDB } = Ravindu
-const { setlistgen, stringChange, changeChange, changelistgen } = GetDB
+const { setlistgen, stringChange, changeChange, changelistgen, chatsettings, removechatslist } = GetDB
 const { rateus, addRate } = Rate
 Manoj.cmd.start = async(core) => {
 	var {
@@ -107,6 +107,55 @@ Manoj.change.start = async(core) => {
 	}
 
 	return await core.send(string().set.error)
+}
+
+Manoj.superchat.start = Manoj.banchat.start = Manoj.superuser.start = async(core) => {
+	var data = await chatsettings(core)
+	if(data.suc === true) {
+		return await core.reply(string().chat_settings.done.bind(data.chat, data.code))
+	}
+
+	if(data.suc === false) {
+		if(data.res === 'owner') {
+			return await core.reply(string().chat_settings.owner)
+		}
+
+		if(data.res === 'group') {
+			return await core.reply(string().chat_settings.need)
+		}
+
+		if(data.res === 'SuperChat') {
+			return await core.reply(string().chat_settings.superchat)
+		}
+
+		if(data.res === 'BannedChat') {
+			return await core.reply(string().chat_settings.banchat)
+		}
+	}
+}
+
+Manoj.remove.start = async(core) => {
+	if(core.input && core.input.have('/-/')) {
+		var d = core.input.cut('/-/')[0]
+		var data = await stringChange({ [d[0]]:d[1] }, 'remove')
+		if(data) {
+			await core.reply(string().chat_settings.removed.bind(d[1], d[0]))
+		}
+
+		return
+	}
+
+	var sec = await removechatslist()
+	if(!sec) {
+		return await core.reply('No-Chats')
+	}
+
+	var list = {}
+	list.title = ''
+	list.text = '\n*Remove Chats From,*\n\n   *SuperUser*\n   *SuperChat*\n   *BannedChat*\n\n'
+	list.button = 'Remove'
+	list.sec = sec
+	return await core.sendlist(list)
 }
 
 Manoj.alive.start = async(core) => {

@@ -114,13 +114,14 @@ Manoj.fb.start = async(core) => {
 	try {
 		await core.send((dataDb.FbDownload || string().fb.dload).setup(core))
 		var buffer = await Facebook.downloader(url)
+		var FileName = randomName() + '.mp4'
 		await core.send((dataDb.FbUplaod || string().fb.uload).setup(core))
-		await core.downloadUrl(buffer, './temp/fbvid.mp4', async() => {
-			await core.mediasend('video', './temp/fbvid.mp4', dataDb.caption.setup(core))
-			return removefile('./temp/fbvid.mp4')
+		await core.downloadUrl(buffer, FileName, async() => {
+			await core.mediasend('video', FileName, dataDb.caption.setup(core))
+			return removefile(FileName)
 		}, async() => {
 			await core.reply(string().fb.error)
-			return removefile('./temp/fbvid.mp4')
+			return removefile(FileName)
 		})
 	} catch(e) {
 		await core.reply(string().fb.error)
@@ -138,15 +139,17 @@ Manoj.mfire.start = async(core) => {
 		var data = await mediafire(url)
 		await core.send((dataDb.MfireUplaod || string().mfire.uload).setup(core))
 		var linkdata = await linkPreview(data.link)
-		await core.downloadUrl(data.link, linkdata.fileName, async() => {
-			await core.mediasend('document', linkdata.fileName, linkdata.mime, {}, false, linkdata.fileName)
-			return removefile(linkdata.fileName)
+		var FileName = randomName() + linkdata.ext
+		await core.downloadUrl(data.link, FileName, async() => {
+			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
+			return removefile(FileName)
 		}, async() => {
 			await core.reply(string().mfire.error)
-			return removefile(linkdata.fileName)
+			return removefile(FileName)
 		})
 	} catch(e) {
 		await core.reply(string().mfire.error)
+		return removefile(FileName)
 	}
 }
 
@@ -161,15 +164,17 @@ Manoj.gdrive.start = async(core) => {
 		var data = await googleDrive(url)
 		await core.send((dataDb.GdriveUpload || string().gdrive.uload).setup(core))
 		var linkdata = await linkPreview(data)
-		await core.downloadUrl(data, linkdata.fileName, async() => {
-			await core.mediasend('document', linkdata.fileName, linkdata.mime, {}, false, linkdata.fileName)
-			return removefile(linkdata.fileName)
+		var FileName = randomName() + linkdata.ext
+		await core.downloadUrl(data, FileName, async() => {
+			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
+			return removefile(FileName)
 		}, async() => {
 			await core.reply(string().gdrive.error)
-			return removefile(linkdata.fileName)
+			return removefile(FileName)
 		})
 	} catch(e) {
 		await core.reply(string().gdrive.error)
+		return removefile(FileName)
 	}
 }
 
@@ -228,15 +233,17 @@ Manoj.gitdl.start = async(core) => {
 		var data = await gitclone(url.replace('.git', ''), newurl[4] || '')
 		await core.send((dataDb.GithubUplaod || string().gitdl.uload).setup(core))
 		var linkdata = await linkPreview(data)
-		await core.downloadUrl(data, linkdata.fileName, async() => {
-			await core.mediasend('document', linkdata.fileName, linkdata.mime, {}, false, linkdata.fileName)
-			return removefile(linkdata.fileName)
+		var FileName = randomName() + linkdata.ext
+		await core.downloadUrl(data, FileName, async() => {
+			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
+			return removefile(FileName)
 		}, async() => {
 			await core.reply(string().gitdl.error)
-			return removefile(linkdata.fileName)
+			return removefile(FileName)
 		})
 	} catch(e) {
 		await core.reply(string().gitdl.error)
+		return removefile(FileName)
 	}
 }
 
@@ -345,11 +352,12 @@ Manoj.novel.start = async(core) => {
 		await core.send(string().novel.dl)
 		await core.send(string().novel.up)
 		var linkdata = await linkPreview(getNovels.download)
-		await core.downloadUrl(getNovels.download, linkdata.fileName, async() => {
-			await core.mediasend('document', linkdata.fileName, linkdata.mime, {}, false, linkdata.fileName)
-			return removefile(linkdata.fileName)
+		var FileName = randomName() + linkdata.ext
+		await core.downloadUrl(getNovels.download, FileName, async() => {
+			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
+			return removefile(FileName)
 		}, async() => {
-			return removefile(linkdata.fileName)
+			return removefile(FileName)
 		})
 	}
 

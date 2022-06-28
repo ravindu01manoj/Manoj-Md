@@ -177,6 +177,19 @@ var string = {
 			desc: 'The Calculater',
 			need: '*Enter A Math*'
 		},
+		chat_settings: {
+			done: '*{}, Successfully Added To {} List*',
+			owner: '*Do Not Use Owners\' Numbers*',
+			need: '*Please Reply To A User*',
+			superchat: '*Remove This Chat From The SuperChat List Using The .remove Command And Try Again*',
+			banchat: '*Remove This Chat From The BannedChat List Using The .remove Command And Try Again*',
+			superchat_desc: 'Add Chat To SuperChat List',
+			superuser_desc: 'Make Someone A Super User Of Bot',
+			banchat_desc: 'Add Chat To BannedChat List',
+			removed: '*{} Was Removed From {} List*',
+			remove_desc: 'Remove Chats From SuperChats,SuperUsers,Bannedchat',
+			superchat_help: 'Enter the chats into the Super Chat list using the .superchat command. Then the bot will only work in SuperChat..not applicable to private commands ... if there are no superchats the bot will work in all chats'
+		},
 		converter: {
 			mp4audio_desc: 'Converts video to sound.',
 			mp4audio_need: '*You Must Reply to a Video!*',
