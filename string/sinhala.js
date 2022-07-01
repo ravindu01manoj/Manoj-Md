@@ -406,7 +406,7 @@ var string = {
                    + 'බොත්තම්\n'
                    + '{button:RATE US|rate}\n'
                    + '{button:PROPERTY|alive}\n'
-                   + '{button:NOTES|note}\n\n'
+                   + '{button:NOTES|notes}\n\n'
                    + 'රූපයයක් ඇතුලත් කරන්න (සෘජු Url හෝ pp හෝ my_dp හෝ group_dp භාවිතා කරන්න)\n'
                    + '{img:https://telegra.ph/file/1d7da58e35215ed3336c5.jpg}\n',
 			command: ' *විධානය:-* ',

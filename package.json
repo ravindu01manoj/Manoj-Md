@@ -12,7 +12,6 @@
     "url": "https://github.com/ravindu01manoj/Manoj-Md/issues"
   },
   "homepage": "https://github.com/ravindu01manoj/Manoj-Md#readme",
-  "license": "ISC",
   "dependencies": {
     "@adiwajshing/baileys": "git+https://github.com/ravindu01manoj/baileys",
     "axios": "^0.26.1",

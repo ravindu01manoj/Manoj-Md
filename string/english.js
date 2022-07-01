@@ -396,7 +396,7 @@ var string = {
 			},
 		},
 		menu: {
-			header: 'Start\n{start:menu_header}\n\nAdd Text Message (keywords: #rate #device #rule)\n' + '{text:┏━━━━━━━━━━━━━━━━━━━━━━━━━\n┃   *MANOJ-MD WHATSAPP BOT*\n┗━━━━━━━━━━━━━━━━━━━━━━━━━\n\n*👨‍💻 COMMAND LIST 👨‍💻*}\n\n' + 'Add 3 Emoji For List\n' + '{emoji:👨‍💻/🕊️/🌳}\n\n' + 'Url Buttons\n' + '{url:GO TO URL|https://github.com/ravindu01manoj}\n' + '{url:SUBSCRIBE YOUTUBE|https://youtube.com/c/TechToFuture}\n\n' + 'Buttons\n' + '{button:RATE US|rate}\n' + '{button:PROPERTY|alive}\n' + '{button:NOTES|note}\n\n' + 'Image (Use Direct Url Or pp Or my_dp Or group_dp)\n' + '{img:https://telegra.ph/file/1d7da58e35215ed3336c5.jpg}\n',
+			header: 'Start\n{start:menu_header}\n\nAdd Text Message (keywords: #rate #device #rule)\n' + '{text:┏━━━━━━━━━━━━━━━━━━━━━━━━━\n┃   *MANOJ-MD WHATSAPP BOT*\n┗━━━━━━━━━━━━━━━━━━━━━━━━━\n\n*👨‍💻 COMMAND LIST 👨‍💻*}\n\n' + 'Add 3 Emoji For List\n' + '{emoji:👨‍💻/🕊️/🌳}\n\n' + 'Url Buttons\n' + '{url:GO TO URL|https://github.com/ravindu01manoj}\n' + '{url:SUBSCRIBE YOUTUBE|https://youtube.com/c/TechToFuture}\n\n' + 'Buttons\n' + '{button:RATE US|rate}\n' + '{button:PROPERTY|alive}\n' + '{button:NOTES|notes}\n\n' + 'Image (Use Direct Url Or pp Or my_dp Or group_dp)\n' + '{img:https://telegra.ph/file/1d7da58e35215ed3336c5.jpg}\n',
 			command: ' *Command:-* ',
 			desc: ' *Description:-* ',
 			help: ' *Help:-* ',

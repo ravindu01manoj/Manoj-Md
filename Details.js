@@ -9,7 +9,7 @@ Coded By Ravindu Manoj
 */
 module.export = {
 	name: 'Manoj Multi-device Whatsapp Bot',
-	version: require('./pre-package.json').version,
+	version: require('./package.json').version,
 	branch: 'master',
-	author: require('./pre-package.json').author
+	author: require('./package.json').author
 }
