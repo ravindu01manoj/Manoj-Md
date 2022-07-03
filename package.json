@@ -1,7 +1,7 @@
 {
   "name": "manoj-md",
   "version": "1.0.0",
-  "description": "World Best Whatsapp Bot",
+  "description": "World Best Whatsapp Bot.",
   "main": "./index.js",
   "scripts": {
     "start": "node index.js"
