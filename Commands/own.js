@@ -14,14 +14,14 @@ Manoj.dp.start = async(core) => {
 	}
 
 	var up = await core.send(string().own.dp.up)
-	fs.writeFileSync('./manoj-prop.jpg', dl.buffer)
+	fs.writeFileSync('./manoj-prop.png', dl.buffer)
 	await core.profileUpdate({
 		dothis: 'up-dp',
-		url: './manoj-prop.jpg',
+		url: './manoj-prop.png',
 		user: core.me
 	})
 	await core.send(string().own.dp.upd)
-	removefile('./manoj-prop.jpg')
+	removefile('./manoj-prop.png')
 	return await core.delete(up)
 }
 

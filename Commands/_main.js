@@ -8,7 +8,7 @@ Youtube: https://youtube.com/c/TechToFuture
 Coded By Ravindu Manoj
 */
 const { Rate, GetDB } = Ravindu
-const { setlistgen, stringChange, changeChange, changelistgen, chatsettings, removechatslist } = GetDB
+const { setlistgen, stringChange, changeChange, changelistgen, chatsettings, removechatslist, removestickercmdlist, addStickerCommand, removestickercmd } = GetDB
 const { rateus, addRate } = Rate
 Manoj.cmd.start = async(core) => {
 	var {
@@ -136,7 +136,7 @@ Manoj.superchat.start = Manoj.banchat.start = Manoj.superuser.start = async(core
 
 Manoj.remove.start = async(core) => {
 	if(core.input && core.input.have('/-/')) {
-		var d = core.input.cut('/-/')[0]
+		var d = core.input.cut('/-/')
 		var data = await stringChange({ [d[0]]:d[1] }, 'remove')
 		if(data) {
 			await core.reply(string().chat_settings.removed.bind(d[1], d[0]))
@@ -153,6 +153,45 @@ Manoj.remove.start = async(core) => {
 	var list = {}
 	list.title = ''
 	list.text = '\n*Remove Chats From,*\n\n   *SuperUser*\n   *SuperChat*\n   *BannedChat*\n\n'
+	list.button = 'Remove'
+	list.sec = sec
+	return await core.sendlist(list)
+}
+
+Manoj.stickcmd.start = async(core) => {
+	if(!core.Reply || !core.Reply.sticker) {
+		return await core.reply(string().stick_cmd.need)
+	}
+
+	if(!core.input) {
+		return await core.reply(string().stick_cmd.needc)
+	}
+
+	var added = await addStickerCommand(core.input, core.Reply.codeid)
+	if(added) {
+		return await core.reply(string().stick_cmd.done.bind('.' + core.input))
+	}
+}
+
+Manoj.rmstickcmd.start = async(core) => {
+	if(core.input && core.input.have('remove/-/')) {
+		var d = core.input.cut('/-/')[1]
+		var data = await removestickercmd(d)
+		if(data) {
+			await core.reply(string().stick_cmd.rem_done.bind(d))
+		}
+
+		return
+	}
+
+	var sec = await removestickercmdlist()
+	if(!sec) {
+		return await core.reply(string().stick_cmd.rem_no)
+	}
+
+	var list = {}
+	list.title = ''
+	list.text = '\n*Stricker Command List.*\n\n*Select A Row For Remove From The List*\n\n'
 	list.button = 'Remove'
 	list.sec = sec
 	return await core.sendlist(list)

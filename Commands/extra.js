@@ -74,7 +74,7 @@ Manoj.link.start = async(core) => {
 
 Manoj.url.start = async(core) => {
 	var data = await core.download()
-	if(!data.type === 'image' && !data.type === 'video') {
+	if(data.type !== 'image' && data.type !== 'video') {
 		return core.reply(string().url.need)
 	}
 

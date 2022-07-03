@@ -1,4 +1,4 @@
-FROM ravindu01manoj/core:v0.0.13
+FROM ravindu01manoj/core:v0.0.15
 
 RUN git clone https://github.com/ravindu01manoj/Manoj-Md /root/Manoj-Md/
 WORKDIR /root/Manoj-Md/

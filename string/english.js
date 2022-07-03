@@ -135,6 +135,7 @@ var string = {
 			info: '*Link:* {} \n\n*Name: {}*\n\n*About: {}*\n\n*Version: {}*\n\n*Type: {}*\n\n*Rating: {}*\n\n*Ratings: {}*\n\n*Content Rating: {}*\n\n*Developer: {}*\n\n*Installs: {}*\n\n*Whats New: {}*\n\n*Description:* ```{}```'
 		},
 		attp: {
+			rgb_desc: 'Create RBG Color Animated Sticker',
 			attpB: {
 				desc: 'Text to Sticker Commands',
 				used: 'attpB example',
@@ -577,6 +578,16 @@ var string = {
 				boot: '```Booting...```',
 				done: '*Manoj Multi-device Whatsapp Bot Started Successfull!*'
 			}
+		},
+		stick_cmd: {
+			desc: 'Convert Sticker To Command',
+			help: 'stickcmd mute',
+			need: '*Reply To A Sticker*',
+			needc: '*Use Like This => .stickcmd mute*',
+			done: '*Successfully created. Now You can use sticker for active {} command*',
+			rem_desc: 'Remove Sticker Command From List',
+			rem_no: '*No Saved Commands!*',
+			rem_done: '*Successfully Removed {} From The List!*',
 		},
 		sticker: {
 			desc: 'It converts your replied or used photo or video or gif to sticker.',
