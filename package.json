@@ -24,7 +24,9 @@
     "node-fetch": "2",
     "node-tesseract-ocr": "1.0.0",
     "ravi-cli": "1.0.1",
-    "simple-git": "2.48.0"
+    "simple-git": "2.48.0",
+    "yt-search": "^2.10.3",
+    "ytdl-core": "^4.11.0"
   },
   "repository": {
     "type": "git",
