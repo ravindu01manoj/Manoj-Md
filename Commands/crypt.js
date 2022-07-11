@@ -69,19 +69,38 @@ Manoj.decrypt.start = async(core) => {
 }
 
 Manoj.dict.start = async(core) => {
-	if(!core.text) {
+	if(!core.text || core.text.have(' ')) {
 		return await core.send(string().dict.need)
 	}
 
-	await core.send(string().dict.gen)
-	var res = await core.webdata(string().dict.api + core.text)
-	var msg = string().dict.title;
-	(res.data[0].meanings[0].definitions).map(async dictrs => {
-		if(dictrs.definition && dictrs.example) {
-			msg += string().dict.def + dictrs.definition + '\n' + string().dict.eg + dictrs.example + '\n\n'
-		} else if(dictrs.definition) {
-			msg += string().dict.def + dictrs.definition + '\n\n'
+	try {
+		await core.send(string().dict.gen)
+		var res = await core.webdata(string().dict.api + core.text)
+		var msg = string().dict.title + 'WORD : ' + core.text.cut(' ')[0] + '\n\n\n'
+		var dat = res[0]?.meanings
+		var audio = res[0]?.phonetics[0]?.audio
+		if(dat) {
+			for(parts of dat) {
+				msg += '*As {}*\n\n'.bind(parts.partOfSpeech)
+				var definitions = parts.definitions || []
+				for(definition of definitions) {
+					if(definition.definition && definition.example) {
+						msg += string().dict.def + definition.definition + '\n' + string().dict.eg + definition.example + '\n\n'
+					} else if(definition.definition) {
+						msg += string().dict.def + definition.definition + '\n\n'
+					}
+				}
+
+				msg += '*Synonyms :- {}*\n'.bind(parts.synonyms.join(',') || '-')
+				msg += '*Antonyms :- {}*\n\n\n'.bind(parts.antonyms.join(',') || '-')
+			}
 		}
-	})
-	await core.reply(msg)
+
+		await core.reply(msg + '*▼Audio▼*')
+		if(audio) {
+			await core.mediasend('voice', audio)
+		}
+	} catch{
+		await core.reply(string().dict.err)
+	}
 }

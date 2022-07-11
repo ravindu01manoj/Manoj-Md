@@ -8,7 +8,7 @@ Youtube: https://youtube.com/c/TechToFuture
 Coded By Ravindu Manoj
 */
 Manoj.log.start = async(core) => {
-	if(!core.isgroup) {
+	if(!core.isgroup || core.input === 'out') {
 		return
 	}
 

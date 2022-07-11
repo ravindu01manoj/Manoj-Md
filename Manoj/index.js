@@ -1,4 +1,4 @@
-/* 
+/*
 Manoj Md Whatsapp Bot
 
 Telegram: https://t.me/RavinduManoj
@@ -9,853 +9,937 @@ Coded By Ravindu Manoj
 */
 module.exports = {
 	add: {
-		command: [ "add", "ගන්න" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'add', 'ගන්න' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.add.desc,
-		react: "✅"
+		react: '✅'
 	},
 	age: {
-		command: [ "age" ],
+		command: [ 'age' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().age.desc,
-		react: "🤔"
+		react: '🤔'
 	},
 	alive: {
-		command: [ "alive" ],
+		command: [ 'alive' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().alive.desc,
-		react: "🙋‍♂️"
+		react: '🙋‍♂️'
 	},
 	antispam: {
-		command: [ "antispam" ],
-		type: "dual",
-		category: "profile",
-		react: "😑"
+		command: [ 'antispam' ],
+		type: 'dual',
+		category: 'profile',
+		react: '😑'
 	},
 	antivo: {
-		command: [ "antivo" ],
+		command: [ 'antivo' ],
 		desc: string().viweOnce.desc,
-		category: "main",
+		category: 'main',
 		type: type_bot,
-		react: "🤫"
+		react: '🤫'
 	},
 	apk: {
-		command: [ "apk" ],
+		command: [ 'apk' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().apk.desc,
 		help: string().apk.used,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	apks: {
-		command: [ "playstore" ],
+		command: [ 'playstore' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().apks.desc,
 		help: string().apks.used,
-		react: "🔎"
+		react: '🔎'
 	},
 	attpA: {
-		command: [ "attpA" ],
+		command: [ 'attpA' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().attp.attpB.desc,
-		help: "attpA example",
-		react: "🎆"
+		help: 'attpA example',
+		react: '🎆'
 	},
 	attpB: {
-		command: [ "attpB" ],
+		command: [ 'attpB' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().attp.attpB.desc,
 		help: string().attp.attpB.used,
-		react: "🎇"
+		react: '🎇'
 	},
 	attpC: {
-		command: [ "attpC" ],
+		command: [ 'attpC' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().attp.attpB.desc,
 		help: string().attp.attpC.used,
-		react: "🏞️"
+		react: '🏞️'
 	},
 	attpD: {
-		command: [ "attpD" ],
+		command: [ 'attpD' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().attp.attpB.desc,
-		help: "attpD example",
-		react: "🏖️"
+		help: 'attpD example',
+		react: '🏖️'
 	},
 	banchat: {
-		command: [ "banchat" ],
-		type: "private",
-		category: "profile",
+		command: [ 'banchat' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().chat_settings.banchat_desc,
-		react: "👑"
+		react: '👑'
 	},
 	block: {
-		command: [ "block" ],
-		type: "private",
-		category: "profile",
+		command: [ 'block' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.block.desc,
-		react: "🔐"
+		react: '🔐'
 	},
 	boom: {
-		command: [ "boom" ],
-		type: "private",
-		category: "profile",
+		command: [ 'boom' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().boom.desc,
 		help: string().boom.help,
-		react: "🧲"
+		react: '🧲'
 	},
 	cal: {
-		command: [ "cal" ],
+		command: [ 'cal' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().web.speed_desc,
-		react: "🤔"
+		react: '🤔'
 	},
 	change: {
-		command: [ "change" ],
-		type: "private",
-		category: "profile",
+		command: [ 'change' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().set.desc,
-		react: "📝"
+		react: '📝'
 	},
 	cmd: {
-		command: [ "cmd", "menu", "help", "list", "මෙනු", "ලිස්ට්", "උදව්", "කමාන්ඩ්" ],
+		command: [ 'cmd', 'menu', 'help', 'list', 'මෙනු', 'ලිස්ට්', 'උදව්', 'කමාන්ඩ්' ],
 		type: type_bot,
-		category: "non",
-		react: "📁"
+		category: 'non',
+		react: '📁'
 	},
 	comm: {
-		command: [ "comm" ],
-		type: "private",
-		category: "profile",
+		command: [ 'comm' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.comm.desc,
 		help: string().own.comm.help,
-		react: "🖇️"
+		react: '🖇️'
 	},
 	decrypt: {
-		command: [ "decrypt" ],
+		command: [ 'decrypt' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().crypt.dedesc,
-		react: "⛓️"
+		react: '⛓️'
 	},
 	del: {
-		command: [ "del" ],
+		command: [ 'del' ],
 		type: type_bot,
-		category: "profile",
-		react: "🧽"
+		category: 'profile',
+		react: '🧽'
 	},
 	demote: {
-		command: [ "demote" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'demote' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.demote.desc,
-		react: "🤫"
+		react: '🤫'
+	},
+	dice: {
+		command: [ 'dice' ],
+		type: type_bot,
+		category: 'game',
+		desc: string().game.dice.desc,
+		react: '️‍🎲'
 	},
 	dict: {
-		command: [ "dict" ],
+		command: [ 'dict' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().dict.desc,
-		react: "🕵️‍♂️"
+		react: '🕵️‍♂️'
 	},
 	diff: {
-		command: [ "diff" ],
-		type: "private",
-		category: "profile",
+		command: [ 'diff' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.diff.desc,
 		help: string().own.diff.help,
-		react: "🎎"
+		react: '🎎'
 	},
 	dp: {
-		command: [ "dp", "ඩීපි" ],
-		type: "private",
-		category: "profile",
+		command: [ 'dp', 'ඩීපි' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.dp.desc,
-		react: "🌇"
+		react: '🌇'
 	},
 	emojimix: {
-		command: [ "emojimix" ],
+		command: [ 'emojimix' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().attp.emojimix.desc,
-		help: "emojimix 😍💖",
-		react: "🤝"
+		help: 'emojimix 😍💖',
+		react: '🤝'
 	},
 	encrypt: {
-		command: [ "encrypt" ],
+		command: [ 'encrypt' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().crypt.endesc,
-		react: "🗿"
+		react: '🗿'
 	},
 	fancy: {
-		command: [ "fancy" ],
+		command: [ 'fancy' ],
 		type: type_bot,
-		category: "logo",
+		category: 'logo',
 		desc: string().logo.fancy.desc,
 		help: string().logo.fancy.help,
-		react: "🪞"
+		react: '🪞'
 	},
 	fb: {
-		command: [ "fb", "facebook" ],
+		command: [ 'fb', 'facebook' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().fb.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	ffmpeg: {
-		command: [ "ffmpeg" ],
+		command: [ 'ffmpeg' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().ffmpeg.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	gdrive: {
-		command: [ "gdrive" ],
+		command: [ 'gdrive' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().gdrive.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	gimg: {
-		command: [ "img", "image" ],
+		command: [ 'img', 'image' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().gimg.desc,
-		react: "🔎"
+		react: '🔎'
 	},
 	gitdl: {
-		command: [ "gitclone", "gitdl" ],
+		command: [ 'gitclone', 'gitdl' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().gitdl.desc,
-		react: "⬇️"
+		react: '⬇️'
+	},
+	goodbyejid: {
+		command: [ 'goodbyejid' ],
+		type: 'admin',
+		category: 'admin',
+		desc: string().chat_settings.jid_set_desc.bind('GoodByeMessageGroups'),
+		react: '👑'
 	},
 	gpdesc: {
-		command: [ "gpdesc", "ගෲප්ඩිස්" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'gpdesc', 'ගෲප්ඩිස්' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.gpdesc.desc,
-		react: "🖨️"
+		react: '🖨️'
 	},
 	gpdp: {
-		command: [ "gpdp", "ගෲප්ඩීපි" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'gpdp', 'ගෲප්ඩීපි' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.gpdp.desc,
-		react: "📸"
+		react: '📸'
 	},
 	gpsub: {
-		command: [ "gpsub", "ගෲප්සබ්" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'gpsub', 'ගෲප්සබ්' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.gpsub.desc,
-		react: "🖊️"
+		react: '🖊️'
 	},
 	info: {
-		command: [ "info" ],
-		type: "private",
-		category: "main",
+		command: [ 'info' ],
+		type: 'private',
+		category: 'main',
 		desc: string().info.desc,
-		react: "📝"
+		react: '📝'
 	},
 	insta: {
-		command: [ "instagram", "igdl" ],
+		command: [ 'instagram', 'igdl' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().insta.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	install: {
-		command: [ "install" ],
-		type: "private",
-		category: "profile",
-		react: "⬆️"
+		command: [ 'install' ],
+		type: 'private',
+		category: 'profile',
+		react: '⬆️'
 	},
 	instastory: {
-		command: [ "instastory", "igstory" ],
+		command: [ 'instastory', 'igstory' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().instastory.desc,
-		react: "🚻"
+		react: '🚻'
 	},
 	invite: {
-		command: [ "invite", "ගෲප්ලින්ක්" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'invite', 'ගෲප්ලින්ක්' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.invite.desc,
-		react: "🌐"
+		react: '🌐'
 	},
 	ip: {
-		command: [ "ip" ],
+		command: [ 'ip' ],
 		desc: string().news.ip.desc,
-		category: "main",
+		category: 'main',
 		type: type_bot,
-		react: "🌍"
+		react: '🌍'
 	},
 	jail: {
-		command: [ "jail" ],
+		command: [ 'jail' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().sticker.desc,
-		react: "🏰"
+		react: '🏰'
 	},
 	jid: {
-		command: [ "jid" ],
-		type: "private",
-		category: "main",
+		command: [ 'jid' ],
+		type: 'private',
+		category: 'main',
 		desc: string().info.jid.desc,
-		react: "🧭"
+		react: '🧭'
 	},
 	join: {
-		command: [ "join" ],
-		type: "private",
-		category: "profile",
+		command: [ 'join' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.join.desc,
-		react: "✅"
+		react: '✅'
 	},
 	joke: {
-		command: [ "joke" ],
+		command: [ 'joke' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().joke.joke.desc,
-		react: "🤪"
+		react: '🤪'
 	},
 	kick: {
-		command: [ "kick", "ඩෝං" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'kick', 'ඩෝං' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.kick.desc,
 		help: string().admin.kick.help,
-		react: "👋"
+		react: '👋'
 	},
 	left: {
-		command: [ "left" ],
-		type: "private",
-		category: "profile",
+		command: [ 'left' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.left.desc,
-		react: "🙏"
+		react: '🙏'
 	},
 	link: {
-		command: [ "link" ],
+		command: [ 'link' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().link.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	lock: {
-		command: [ "lock", "ලොක්" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'lock', 'ලොක්' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.lock.desc,
-		react: "🔒"
+		react: '🔒'
 	},
 	log: {
-		command: [ "tolog" ],
-		type: "private",
-		category: "profile",
+		command: [ 'tolog' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().log.desc,
-		react: "📝"
+		react: '📝'
+	},
+	logout: {
+		command: [ 'logout'],
+		type: 'private',
+		category: 'non',
+		react: '🦁'
 	},
 	logoA: {
-		command: [ "logoA" ],
+		command: [ 'logoA' ],
 		type: type_bot,
-		category: "logo",
+		category: 'logo',
 		desc: string().logo.logoA.desc,
 		help: string().logo.logoA.used,
-		react: "🌃"
+		react: '🌃'
 	},
 	logoB: {
-		command: [ "logoB" ],
+		command: [ 'logoB' ],
 		type: type_bot,
-		category: "logo",
+		category: 'logo',
 		desc: string().logo.logoA.desc,
 		help: string().logo.logoB.used,
-		react: "🗼"
+		react: '🗼'
 	},
 	logoC: {
-		command: [ "logoC" ],
+		command: [ 'logoC' ],
 		type: type_bot,
-		category: "logo",
+		category: 'logo',
 		desc: string().logo.logoA.desc,
-		help: "logoC example",
-		react: "🏙️"
+		help: 'logoC example',
+		react: '🏙️'
 	},
 	mfire: {
-		command: [ "mediafire", "mfire" ],
+		command: [ 'mediafire', 'mfire' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().mfire.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	movie: {
-		command: [ "movie" ],
+		command: [ 'movie' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().news.film.desc,
-		react: "🔎"
+		react: '🔎'
 	},
 	mp3a: {
-		command: [ "mp3" ],
+		command: [ 'mp3' ],
 		type: type_bot,
-		category: "audio",
+		category: 'audio',
 		desc: string().converter.mp4audio_desc,
-		react: "🎶"
+		react: '🎶'
 	},
 	mute: {
-		command: [ "mute" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'mute' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.mute.desc,
-		react: "🤫"
+		react: '🤫'
 	},
 	mycmd: {
-		command: [ "mycmd" ],
-		type: "private",
-		category: "profile",
-		react: "🤗"
+		command: [ 'mycmd' ],
+		type: 'private',
+		category: 'profile',
+		react: '🤗'
 	},
 	neko: {
-		command: [ "neko" ],
+		command: [ 'neko' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().nekobin.desc,
-		react: "📝"
+		react: '📝'
 	},
 	news: {
-		command: [ "news" ],
+		command: [ 'news' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().news.news.desc,
-		react: "📝"
+		react: '📝'
 	},
 	notes: {
-		command: [ "notes" ],
+		command: [ 'notes' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().notes.desc,
-		react: "🖋️"
+		react: '🖋️'
 	},
 	novel: {
-		command: [ "novel" ],
+		command: [ 'novel' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().novel.desc,
-		react: "📚"
+		react: '📚'
 	},
 	ocr: {
-		command: [ "ocr" ],
+		command: [ 'ocr' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().ocr.desc,
-		react: "🔎"
+		react: '🔎'
 	},
 	passed: {
-		command: [ "passed" ],
+		command: [ 'passed' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().sticker.desc,
-		react: "💍"
+		react: '💍'
 	},
 	pdf: {
-		command: [ "pdf", "page", "topdf" ],
+		command: [ 'pdf', 'page', 'topdf' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().pdf.desc,
-		react: "📑"
+		react: '📑'
 	},
 	ph: {
-		command: [ "ph" ],
-		type: "private",
-		category: "non"
+		command: [ 'ph' ],
+		type: 'private',
+		category: 'non'
 	},
 	photo: {
-		command: [ "photo" ],
+		command: [ 'photo' ],
 		type: type_bot,
-		category: "image",
+		category: 'image',
 		desc: string().converter.sticker_desc,
-		react: "🌉"
+		react: '🌉'
 	},
 	ping: {
-		command: [ "ping" ],
-		type: "private",
-		category: "profile",
+		command: [ 'ping' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().web.ping_desc
 	},
 	png: {
-		command: [ "png" ],
+		command: [ 'png' ],
 		type: type_bot,
-		category: "logo",
+		category: 'logo',
 		desc: string().logo.png.desc,
 		help: string().logo.png.help,
-		react: "🌠"
+		react: '🌠'
 	},
 	poll: {
-		command: [ "poll" ],
+		command: [ 'poll' ],
 		type: type_bot,
-		category: "main",
-		react: "🌛"
+		category: 'main',
+		react: '🌛'
 	},
 	promote: {
-		command: [ "promote" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'promote' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.promote.desc,
-		react: "💂"
+		react: '💂'
 	},
 	quote: {
-		command: [ "quote" ],
+		command: [ 'quote' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().joke.quote.desc,
-		react: "🤓"
+		react: '🤓'
 	},
 	rate: {
-		command: [ "rate" ],
-		type: "public",
-		category: "main",
+		command: [ 'rate' ],
+		type: 'public',
+		category: 'main',
 		desc: string().rate.desc,
-		react: "😊"
+		react: '😊'
 	},
 	react: {
-		command: [ "react" ],
-		type: "private",
-		category: "profile"
+		command: [ 'react' ],
+		type: 'private',
+		category: 'profile'
+	},
+	readmore: {
+		command: [ 'readmore' ],
+		type: type_bot,
+		category: 'main',
+		desc: string().readmore.desc,
+		react: '🎊'
 	},
 	remove: {
-		command: [ "remove" ],
-		type: "private",
-		category: "profile",
+		command: [ 'remove' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().chat_settings.remove_desc,
-		react: "👑"
+		react: '👑'
 	},
 	removebg: {
-		command: [ "rbg" ],
+		command: [ 'rbg' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().removebg.desc,
-		react: "⛲"
+		react: '⛲'
 	},
 	report: {
-		command: [ "report" ],
-		type: "dual",
-		category: "main",
+		command: [ 'report' ],
+		type: 'dual',
+		category: 'main',
 		desc: string().report.desc,
-		react: "🕵️"
+		react: '🕵️'
 	},
 	revoke: {
-		command: [ "revoke", "රිවෝක්" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'revoke', 'රිවෝක්' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.revoke.desc,
-		react: "🔖"
+		react: '🔖'
 	},
 	rgb: {
-		command: [ "rgb" ],
+		command: [ 'rgb' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().attp.rgb_desc,
-		help: "rgb example",
-		react: "🌈"
+		help: 'rgb example',
+		react: '🌈'
 	},
 	rmstickcmd: {
-		command: [ "rmstickcmd" ],
-		type: "private",
-		category: "profile",
+		command: [ 'rmstickcmd' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().stick_cmd.rem_desc,
-		react: "👑"
+		react: '👑'
 	},
 	scam: {
-		command: [ "scam" ],
-		type: "private",
-		category: "profile",
+		command: [ 'scam' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().scam.desc,
-		react: "🙈"
+		react: '🙈'
 	},
 	scan: {
-		command: [ "scan" ],
+		command: [ 'scan' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().tag.scan,
-		react: "🔎"
+		react: '🔎'
 	},
 	set: {
-		command: [ "set" ],
-		type: "private",
-		category: "profile",
+		command: [ 'set' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().set.desc,
-		react: "👑"
+		react: '👑'
 	},
 	setabout: {
-		command: [ "aboutset" ],
-		type: "private",
-		category: "profile",
+		command: [ 'aboutset' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.about.desc,
-		react: "✅"
+		react: '✅'
+	},
+	shells: {
+		command: [ 'shells' ],
+		type: type_bot,
+		category: 'game',
+		desc: string().game.shells.desc,
+		react: '️‍🐚'
 	},
 	short: {
-		command: [ "short" ],
+		command: [ 'short' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().web.tiny_desc,
-		react: "🖌️"
+		react: '🖌️'
 	},
 	show: {
-		command: [ "show" ],
+		command: [ 'show' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().news.show.desc,
-		react: "🔎"
+		react: '🔎'
 	},
 	shutdown: {
-		command: [ "shutdown", "ශට්ඩවුන්" ],
-		type: "private",
-		category: "profile",
+		command: [ 'shutdown', 'ශට්ඩවුන්' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().start.shutdown.desc,
-		react: "⛔"
+		react: '⛔'
 	},
 	song: {
-		command: [ "song", "සින්දු" ],
+		command: [ 'song', 'සින්දු' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().youtube.song.desc,
-		react: "🎶"
+		react: '🎶'
 	},
-	speedtest: {
-		command: [ "speedtest" ],
-		type: "private",
-		category: "profile",
-		desc: string().web.speed_desc,
-		help: string().web.speed_help
+	screenshot: {
+		command: [ 'screenshot', 'ss' ],
+		type: type_bot,
+		category: 'download',
+		desc: string().screenshot.desc,
+		react: '📸'
 	},
 	start: {
-		command: [ "start", "ස්ටාට්" ],
-		type: "private",
-		category: "profile",
+		command: [ 'start', 'ස්ටාට්' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().start.start.desc,
-		react: "✅"
+		react: '✅'
 	},
 	stickcmd: {
-		command: [ "stickcmd" ],
-		type: "private",
-		category: "profile",
+		command: [ 'stickcmd' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().stick_cmd.desc,
-		react: "👑"
+		react: '👑'
 	},
 	sticker: {
-		command: [ "sticker", "ස්ටිකර්", "stikar" ],
+		command: [ 'sticker', 'ස්ටිකර්', 'stikar' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().sticker.desc,
 		help: string().sticker.help,
-		react: "☄️"
+		react: '☄️'
 	},
 	stickget: {
-		command: [ "stickget" ],
+		command: [ 'stickget' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().sticker.get_desc,
 		help: string().sticker.get_help,
-		react: "🥷"
+		react: '🥷'
 	},
 	sub: {
-		command: [ "sub" ],
+		command: [ 'sub' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().bcope.desc,
-		react: "🗒️"
+		react: '🗒️'
 	},
 	superchat: {
-		command: [ "superchat" ],
-		type: "private",
-		category: "profile",
+		command: [ 'superchat' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().chat_settings.superchat_desc,
-		react: "👑"
+		react: '👑'
 	},
 	superuser: {
-		command: [ "superuser" ],
-		type: "private",
-		category: "profile",
+		command: [ 'superuser' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().chat_settings.superuser_desc,
-		react: "👑"
+		react: '👑'
 	},
 	tag: {
-		command: [ "tag" ],
-		type: "private",
-		category: "profile",
-		react: "🪝"
+		command: [ 'tag' ],
+		type: 'private',
+		category: 'profile',
+		react: '🪝'
 	},
 	tagadmin: {
-		command: [ "tagadmin" ],
-		type: "dual",
-		category: "main",
+		command: [ 'tagadmin' ],
+		type: 'dual',
+		category: 'main',
 		desc: string().tag.admin_desc,
-		react: "👑"
+		react: '👑'
 	},
 	tiktok: {
-		command: [ "tiktok" ],
+		command: [ 'tiktok' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().tiktok.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	tiny: {
-		command: [ "tiny" ],
+		command: [ 'tiny' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().web.tiny_desc,
-		react: "🌎"
+		react: '🌎'
 	},
 	tovoice: {
-		command: [ "tovoice" ],
+		command: [ 'tovoice' ],
 		type: type_bot,
-		category: "audio",
+		category: 'audio',
 		desc: string().voice.tovoice_desc,
-		react: "🔊"
+		react: '🔊'
 	},
 	triggered: {
-		command: [ "triggered" ],
+		command: [ 'triggered' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().sticker.desc,
-		react: "👨‍🍼"
+		react: '👨‍🍼'
+	},
+	trt: {
+		command: [ 'translate', 'trt' ],
+		type: type_bot,
+		category: 'main',
+		desc: string().trt.desc,
+		help: string().trt.used,
+		react: '🪄'
 	},
 	truecaller: {
-		command: [ "truecaller" ],
+		command: [ 'truecaller' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().truecaller.desc,
-		react: "💾"
+		react: '💾'
 	},
 	twitter: {
-		command: [ "twitter", "tweet" ],
+		command: [ 'twitter', 'tweet' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().twitter.desc,
-		react: "⬇️"
+		react: '⬇️'
 	},
 	unblock: {
-		command: [ "unblock" ],
-		type: "private",
-		category: "profile",
+		command: [ 'unblock' ],
+		type: 'private',
+		category: 'profile',
 		desc: string().own.unblock.desc,
-		react: "🔓"
+		react: '🔓'
 	},
 	unit: {
-		command: [ "unit" ],
+		command: [ 'unit' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().unit.unit_desc,
 		help: string().unit.unit_use,
-		react: "🎛️"
+		react: '🎛️'
 	},
 	unlock: {
-		command: [ "unlock", "අන්ලොක්" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'unlock', 'අන්ලොක්' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.unlock.desc,
-		react: "🔓"
+		react: '🔓'
 	},
 	unmute: {
-		command: [ "unmute" ],
-		type: "admin",
-		category: "admin",
+		command: [ 'unmute' ],
+		type: 'admin',
+		category: 'admin',
 		desc: string().admin.unmute.desc,
-		react: "🔓"
+		react: '🔓'
 	},
 	update: {
-		command: [ "update" ],
-		type: "private",
-		category: "profile",
-		react: "🤖"
+		command: [ 'update' ],
+		type: 'private',
+		category: 'profile',
+		react: '🤖'
 	},
 	updatenow: {
-		command: [ "update now" ],
-		type: "private",
-		category: "profile",
-		react: "🤖"
+		command: [ 'update now' ],
+		type: 'private',
+		category: 'profile',
+		react: '🤖'
+	},
+	updemotejid: {
+		command: [ 'updemotejid' ],
+		type: 'admin',
+		category: 'admin',
+		desc: string().chat_settings.jid_set_desc.bind('DemoteUpdateGroups'),
+		react: '👑'
+	},
+	upeditjid: {
+		command: [ 'upeditjid' ],
+		type: 'admin',
+		category: 'admin',
+		desc: string().chat_settings.jid_set_desc.bind('EditUpdateGroups'),
+		react: '👑'
+	},
+	upmutejid: {
+		command: [ 'upmutejid' ],
+		type: 'admin',
+		category: 'admin',
+		desc: string().chat_settings.jid_set_desc.bind('MuteUpdateGroups'),
+		react: '👑'
+	},
+	uppromotejid: {
+		command: [ 'uppromotejid' ],
+		type: 'admin',
+		category: 'admin',
+		desc: string().chat_settings.jid_set_desc.bind('PromoteUpdateGroups'),
+		react: '👑'
+	},
+	upsubjid: {
+		command: [ 'upsubjid' ],
+		type: 'admin',
+		category: 'admin',
+		desc: string().chat_settings.jid_set_desc.bind('SubjectUpdateMessageGroups'),
+		react: '👑'
 	},
 	url: {
-		command: [ "tourl", "url" ],
+		command: [ 'tourl', 'url' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().url.desc,
-		react: "🌐"
+		react: '🌐'
 	},
 	video: {
-		command: [ "video", "වීඩියෝ" ],
+		command: [ 'video', 'වීඩියෝ' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().youtube.video.desc,
-		react: "🎥"
+		react: '🎥'
 	},
 	voicy: {
-		command: [ "voicy" ],
+		command: [ 'voicy' ],
 		desc: string().voice.voi_desc,
-		category: "audio",
+		category: 'audio',
 		type: type_bot,
-		react: "📢"
+		react: '📢'
 	},
 	vsticker: {
-		command: [ "vsticker" ],
+		command: [ 'vsticker' ],
 		desc: string().converter.animstick,
-		category: "video",
+		category: 'video',
 		type: type_bot,
-		react: "🌅"
+		react: '🌅'
 	},
 	wame: {
-		command: [ "wame" ],
+		command: [ 'wame' ],
 		type: type_bot,
-		category: "main",
+		category: 'main',
 		desc: string().info.wame.desc,
-		react: "🌐"
+		react: '🌐'
 	},
 	wasted: {
-		command: [ "wasted" ],
+		command: [ 'wasted' ],
 		type: type_bot,
-		category: "sticker",
+		category: 'sticker',
 		desc: string().sticker.desc,
-		react: "😵"
+		react: '😵'
 	},
 	weather: {
-		command: [ "weather" ],
+		command: [ 'weather' ],
 		desc: string().weather.desc,
-		category: "main",
+		category: 'main',
 		type: type_bot,
-		react: "🌥️"
+		react: '🌥️'
+	},
+	welcomejid: {
+		command: [ 'welcomejid' ],
+		type: 'admin',
+		category: 'admin',
+		desc: string().chat_settings.jid_set_desc.bind('WelcomeMessageGroups'),
+		react: '👑'
 	},
 	xo: {
-		command: [ "xo", "tictactoe" ],
+		command: [ 'xo', 'tictactoe' ],
 		type: type_bot,
-		category: "main",
-		desc: "XO game",
-		react: "❌"
+		category: 'main',
+		desc: 'XO game',
+		react: '❌'
 	},
 	ytd: {
-		command: [ "ytd" ],
+		command: [ 'ytd' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().youtube.video.desc,
-		react: "🎞️"
+		react: '🎞️'
 	},
 	yts: {
-		command: [ "yts" ],
+		command: [ 'yts' ],
 		type: type_bot,
-		category: "download",
+		category: 'download',
 		desc: string().youtube.yts.desc,
-		react: "🔎"
+		react: '🔎'
 	},
 	z_note: {
 		withAll: true,
-		type: "dual"
+		type: 'dual'
 	}
 }

@@ -1,1 +1,1 @@
-module.exports = require("../../Manoj/base/types")
+module.exports = require("../../../Manoj/base/types")

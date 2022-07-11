@@ -1,0 +1,6 @@
+build:
+  docker:
+      worker: Dockerfile
+      
+run:
+   worker: bash manoj-multi-device-whatsapp-start.sh

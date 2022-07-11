@@ -9,7 +9,7 @@ Coded By Ravindu Manoj
 */
 const { XoGame } = Ravindu
 const { Game, getSession, buttonxo, makexobutton } = XoGame
-
+/*
 Manoj.xo.start = async(core) => {
 	if(core.input && core.input.have('startgame') && core.input.have('/')) {
 		var id = core.input.replace('startgame', '')
@@ -80,3 +80,4 @@ Manoj.xo.start = async(core) => {
 
 	return
 }
+*/

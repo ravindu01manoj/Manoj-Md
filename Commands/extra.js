@@ -8,7 +8,7 @@ Youtube: https://youtube.com/c/TechToFuture
 Coded By Ravindu Manoj
 */
 var Url_Regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
-const { calAge, calculater } = Ravindu
+const { calAge, calculater, translate, getSiteScreenshot } = Ravindu
 Manoj.del.start = async(core) => {
 	if(!core.Reply || !core.Reply_key.fromMe) {
 		return
@@ -110,6 +110,53 @@ Manoj.cal.start = async(core) => {
 	}
 
 	return await core.reply(out)
+}
+
+Manoj.readmore.start = async(core) => {
+	if(!core.text) {
+		return await core.reply(string().readmore.need)
+	}
+
+	const text = core.text.cut('/')
+	return await core.reply(text[0] + readmore + (text[1] || ''))
+}
+
+Manoj.trt.start = async(core) => {
+	if(!core.Reply || !core.Reply.text) {
+		return await core.reply(string().trt.need_r)
+	}
+
+	if(!core.input || !core.input.cut('/')[1]) {
+		return await core.reply(string().trt.needlang)
+	}
+
+	var langs = core.input.cut('/')
+	const from = searchlanguage(langs[0]).data1
+	const to = searchlanguage(langs[1]).data1 || langs[1]
+	try {
+		var msg = await translate(core.Reply.text, { from, to })
+		if(!msg) {
+			throw new Error('false')
+		}
+
+		await core.reply(string().trt.done.bind(from, to, msg))
+	} catch{
+		await core.reply(string().trt.err)
+	}
+}
+
+Manoj.screenshot.start = async(core) => {
+	if(!core.input) {
+		return await core.reply(string().screenshot.need)
+	}
+
+	var buff = getSiteScreenshot(core.input)
+	var linkdata = await linkPreview(buff)
+	if(!linkdata.mime || linkdata.mime.cut('/')[0] !== 'image') {
+		return await core.reply(string().screenshot.error)
+	}
+
+	return await core.mediasend('image', buff, dataDb.caption.setup(core))
 }
 
 function urlTester(outurl) {

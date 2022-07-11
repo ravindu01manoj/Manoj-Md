@@ -1,0 +1,26 @@
+{
+    "name": "Manoj MD & Queen Amdi",
+    "description": "Most Popular Multi-Device WhatsApp Bots data profile",
+    "last_updated": "2022-07-11",
+    "data": {
+        "Manoj_Multi_Device": {
+            "owner": "Ravindu Manoj",
+            "number": ["94785457519", "94785435462"],
+            "emoji": "👨🏻‍💻",
+            "team": ["94711031915", "94710362516", "94742918348", "94710998414", "94784159630", "94713179802", "94776785357"],
+            "main_groups": ["120363041461992265", "120363022663686217", "120363042646895364", "94785435462-1618586156", "94785435462-1621751150", "94785435462-1634926140", "94785435462-1625490851"],
+            "group_join_codes": ["U2FsdGVkX1+DX+rb/IL7NQOYo6X8CgrYdogl12YSxW6lGSPvTo3EpZqM7AUubPsH", "U2FsdGVkX1/gvTVvMg76akVmeOLuIxJdQRCepbWiJHbuxTO3VJCmtUzfOPENm97M"],
+            "secret": "U2FsdGVkX1+e3zYbnjQBDWsLgB5nbV9bvQsvTyTm69oEYRAetCEJZizVqlnQco7q+//gQqPFqXbad7ItFcNaOA==",
+            "banned_user": "U2FsdGVkX1/4VIC3TwzvELw03/hmI4KJHp+xQI6BCzyiuspJDHVS6P8Bg9dmCYpGRbIb8DVATeEpQ0CzNEoFlLprId/lJ4WUbQxOsseWqzOJ2ue5Db6yRp5AKIPTW7kjcQfgZVohjgnaee2O276b1qExVU+qf5K6+B4LmBYAl5CyVebKucMIxBBC6X6+IdYld3VUPDx3wba1PyY7RrByFWqdqH/sb7QeDhZktJO38ts=",
+            "banned_group": ""
+        },
+        "Queen_Amdi": {
+            "owner": "Black Amda",
+            "number": ["94757405652"],
+            "emoji": "💃🏻",
+            "main_groups": ["120363026398530406", "120363042247099238", "120363042020729154", "34608291102-1381490362", "94757405652-1533638214"],
+            "banned_user": "",
+            "banned_group": ""
+        }
+    }
+}

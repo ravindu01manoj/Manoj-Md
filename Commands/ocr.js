@@ -11,7 +11,7 @@ const {
 	Readimage
 } = require('../store/manoj/')
 
-
+/*
 Manoj.ocr.start = async(core) => {
 	var load = await core.download()
 	if(load.type !== 'image') {
@@ -34,4 +34,4 @@ Manoj.ocr.start = async(core) => {
 	} catch(e) {
 		return await core.reply(string().ocr.err.bind(e))
 	}
-}
+}*/

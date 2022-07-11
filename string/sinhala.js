@@ -187,8 +187,9 @@ var string = {
 			superchat_desc: 'චැට් එකක් SuperChat ලැයිස්තුවට ඇතුලත් කරන්න',
 			superuser_desc: 'යමෙකු බොට්ගේ සුපිරි පරිශීලකයෙකු බවට පත් කරන්න',
 			banchat_desc: 'චැට් එකක් BannedChat ලැයිස්තුවට ඇතුලත් කරන්න',
+			jid_set_desc : 'කණ්ඩායම් Jid අංකය {} ලැයිස්තුවට එකතු කරන්න',
 			removed: '*{}, {} ලැයිස්තුවෙන් ඉවත් කරන ලදි*',
-			remove_desc: 'SuperChats,SuperUsers,Bannedchat වලින් චැට්ස් ඉවත්කරන්න.',
+			remove_desc: 'SuperChats,SuperUsers,Bannedchat,WelcomeMessageGroups,GoodByeMessageGroups,SubjectUpdateMessageGroups,EditUpdateGroups,MuteUpdateGroups,PromoteUpdateGroups,DemoteUpdateGroups වලින් චැට්ස් ඉවත්කරන්න.',
 			superchat_help: '.superchat විදානය භාවිතා කර SuperChat ලැයිස්තුව සදහා Chats ඇතුලත් කරන්න... එවිට එම චැට්ස් තුල පමණක් බොට් ක්‍රියා කරයි.. private විදාන සදහා අදාල නොවේ.. Super Chats නොමැතිනම් සියලු ගෲප් තුල පෙර සේ ක්‍රියා කරයි'
 		},
 		converter: {
@@ -221,12 +222,13 @@ var string = {
 			err: '```පිවිසීම අසාර්ථකයි\nඔබගේ Database Url වලංගු නොවේ\nකරුණාකර ඔබගේ Database Url Update කරන්න.. .register mongodb url භාවිතා කරන්න```'
 		},
 		dict: {
-			desc: 'ශබ්දකෝෂය.\nඋදා: .dict car',
+			desc: 'ඉංග්‍රීසි ශබ්දකෝෂය.\nඋදා: .dict car',
 			title: '*ඔබේ සෙවුම සඳහා ප්‍රතිඵලය* \n\n\n',
 			eg: '*උදාහරණ:* ',
 			def: '*අර්ථ දැක්වීම:* ',
-			need: 'කරුණාකර වචනයක් ඇතුලත් කරන්න',
-			gen: 'පූරණය වෙමින් පවතී... කරුණාකර රැඳී සිටින්න...'
+			need: '*කරුණාකර එක් ඉංග්‍රීසි වචනයක් ඇතුලත් කරන්න*',
+			gen: '*පූරණය වෙමින් පවතී... කරුණාකර රැඳී සිටින්න...*',
+			err: 'එවැනි ඉංග්‍රීසි වචනයක් හමු නොවීය'
 		},
 		download: {
 			needi: '*ඕනෑම රූපයකට පිළිතුරු දෙන්න!*',
@@ -279,6 +281,16 @@ var string = {
 			desc: 'වීඩියෝවට අවශ්‍ය ffmpeg පෙරහන යොදයි.\n⌨️ උදාහරණය: .ffmpeg fade=in:0:30',
 			edit: 'ප්‍රයෝගය යොදමින්.. කරුණාකර රැඳී සිටින්න',
 			need: 'මාධ්‍ය සහ පෙරහන් නම අවශ්‍යයි!\nℹ️ උදා: ```.ffmpeg fade=in:0:30```\nℹ️ උදා: ```.ffmpeg curves=vintage, fps=fps=25```'
+		},
+		game: {
+			dice: {
+				desc: 'දාදු කැට ක්‍රීඩාව',
+				process: '*පෙරලමින්*'
+			},
+			shells: {
+				desc: 'බෙල්ලො දැමීමෙ ක්‍රීඩාව',
+				process: '*බෙල්ලො දමමින්*'
+			},
 		},
 		gdrive: {
 			desc: 'ගූගල් ඩ්‍රයිව් සබැඳියෙන් අන්තර්ගතය බාගන්න',
@@ -556,6 +568,10 @@ var string = {
 			msg: '\n┏━━━━━━━━━━━━━━━━\n┃  ❖❖ ශ්‍රේණිගත කිරීම් ❖❖\n┃\n┃  ✭✭✭✭✭ = {}\n┃  ✭✭✭✭✩ = {}\n┃  ✭✭✭✩✩ = {}\n┃  ✭✭✩✩✩ = {}\n┃  ✭✩✩✩✩ = {}\n┃\n┗━━━━━━━━━━━━━━━━',
 			need: 'මට හොඳම ශ්‍රේණිගත කිරීම දෙන්න'
 		},
+		readmore : {
+			desc: 'ReadMore Text සාදන්න',
+			need: '*text එකකට රිප්ලයි කරන්න.. වෙන් කිරීම සදහා / භාවිතා කරන්න*'
+		},
 		removebg: {
 			desc: 'ඡායාරූපවල පසුබිම ඉවත් කරයි.',
 			needapi: '*Remove Bb Api යතුර අවශ්‍යයි*\n```Removebg Site (remove.bg) භාවිතා කරමින් Api යතුර එක් කරන්න```',
@@ -579,6 +595,11 @@ var string = {
 			need: '*ඔබ ව්‍යාජ ක්‍රියාවක් ඇතුළත් කළ යුතුය!*\nපවතින වර්ග: ```typing & recording & online & stop``',
 			scam_s: '*ව්‍යාජ ක්‍රියාව : --{}--*',
 			err: '```වැරදි ක්‍රියාවක් ඇතුළත් කර ඇත! කරුණාකර පවතින වර්ග භාවිතා කරන්න.: typing & recording & online & stop```'
+		},
+		screenshot: {
+			desc : 'වෙබ් අඩවියේ තිර රුවක් ගන්න',
+			need: '*කරුණාකර Url එකක් ඇතුලත් කරන්න*',
+			error : '*මෙවැනි අඩවියක් හමු නොවීය :(*'
 		},
 		start: {
 			shutdown: {
@@ -635,6 +656,14 @@ var string = {
 			dload: '*ටික්ටොක් සබැඳියෙන් අන්තර්ගතය බාගත කිරීම*',
 			uload: '*ටික්ටොක් සබැඳියෙන් අන්තර්ගතය උඩුගත කිරීම*',
 			error: '*මට ඔබගේ ටික්ටොක් අන්තර්ගතය බාගත නොහැක :(*'
+		},
+		trt: {
+			desc: 'භාශා පරිවර්තනය',
+			used: 'trt auto/en',
+			need_r : '*text එකකට පිළිතුරු දෙන්න*',
+			needlang : '*භාෂා දෙකක් අවශ්‍යයි*\n*උදාහරණය: .trt auto/en හෝ .trt si/en*',
+			err : '*මෙය පරිවර්තනය කළ නොහැක :(*',
+			done : '*පරිවර්තනය සාර්ථකයි*\n*වෙතින් : {}*\n* වෙත : {}*\n*පරිවර්තනය :* ```{}```'
 		},
 		truecaller: {
 			desc: 'truecaller අඩවියේ අංකය සොයන්න',

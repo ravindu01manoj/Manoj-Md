@@ -7,9 +7,12 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-const { Rate, GetDB } = Ravindu
+const { Rate, GetDB, GroupSetting } = Ravindu
 const { setlistgen, stringChange, changeChange, changelistgen, chatsettings, removechatslist, removestickercmdlist, addStickerCommand, removestickercmd } = GetDB
 const { rateus, addRate } = Rate
+const { isValidObject } = GroupSetting
+const msgs = ['TEXT KEYWORDS\n' + readmore + '\n#group_name\n#member_count\n#group_description\n#group_owner\n#group_id\n#added_by\n#removed_by\n#joined_number\n#left_user\n#admin', 'Text Message Example ' + readmore + '\n{type:text}\n\n{text:Hello Example Text\n#group_owner}', 'Image Message Example' + readmore + '\n{type:img}\n\n{img:https://example.com/example.jpg}\nuse direct url or gp_dp or my_dp or user_dp\n\n{text:Hello Example Text\n#group_name}', 'Video Message Example' + readmore + '\n{type:video}\n\n{video:https://example.com/example.mp4}\nuse direct url or gpdp or mydp or userdp\n\n{text:Hello Example Text\n#group_name}', 'Button Image Message Example' + readmore + '{type:button}\n\n{text:Hello Example Text\n#group_name}\n\nUrl Buttons\n{url:GO TO URL|https://github.com/ravindu01manoj}\n{url:SUBSCRIBE YOUTUBE|https://youtube.com/c/TechToFuture}\n\nButtons\n{button:RATE US|rate}\n{button:NOTES|notes}\n{button:COMMANDS|help}\n\nImage (Use Direct Url Or user_dp Or my_dp Or group_dp)\n{img:https://telegra.ph/file/1d7da58e35215ed3336c5.jpg}\n']
+
 Manoj.cmd.start = async(core) => {
 	var {
 		text,
@@ -70,11 +73,23 @@ Manoj.set.start = async(core) => {
 	}
 
 	var savedata = core.input.replace(/#n-#/g, '\n').cut('/ma-noj/')
-	if(savedata[0] === 'AliveMsg' || savedata[0] === 'Notes' || savedata[0] === 'MenuHead') {
+	if('AliveMsg,Notes,MenuHead'.have(savedata[0])) {
 		var rmn = patchAtext(savedata[1])
 		if(!rmn.text || !rmn.img || !rmn.button || rmn.button.length == 0 || (savedata[0] == 'MenuHead' && !rmn.emoji)) {
 			await core.reply(string().set.wrong)
 			return await core.send(savedata[0] === 'AliveMsg' ? string().alive.msg : savedata[0] === 'Notes' ? string().notes.msg : string().menu.header)
+		}
+	}
+
+	if('WelcomeMessage,GoodByeMessage,GroupSubjectUpdateMessage,GroupLockUpdateMessage,GroupUnLockUpdateMessage,GroupMuteUpdateMessage,GroupUnMuteUpdateMessage,GroupUserPromoteMessage,GroupUserDemoteMessage'.have(savedata[0])) {
+		var config = patchAtext(savedata[1])
+		if(!isValidObject(config)) {
+			await core.reply(string().set.wrong)
+			for(ms of msgs) {
+				await core.reply(ms)
+			}
+
+			return
 		}
 	}
 
@@ -109,7 +124,7 @@ Manoj.change.start = async(core) => {
 	return await core.send(string().set.error)
 }
 
-Manoj.superchat.start = Manoj.banchat.start = Manoj.superuser.start = async(core) => {
+Manoj.welcomejid.start = Manoj.goodbyejid.start = Manoj.upsubjid.start = Manoj.upeditjid.start = Manoj.upmutejid.start = Manoj.uppromotejid.start = Manoj.updemotejid.start = Manoj.superchat.start = Manoj.banchat.start = Manoj.superuser.start = async(core) => {
 	var data = await chatsettings(core)
 	if(data.suc === true) {
 		return await core.reply(string().chat_settings.done.bind(data.chat, data.code))
@@ -152,7 +167,7 @@ Manoj.remove.start = async(core) => {
 
 	var list = {}
 	list.title = ''
-	list.text = '\n*Remove Chats From,*\n\n   *SuperUser*\n   *SuperChat*\n   *BannedChat*\n\n'
+	list.text = '\n*Remove Chats From,*\n\n   *SuperUser*\n   *SuperChat*\n   *BannedChat*\n   *WelcomeMessageGroups*\n   *GoodByeMessageGroups*\n   *SubjectUpdateMessageGroups*\n   *EditUpdateGroups*\n   *MuteUpdateGroups*\n   *PromoteUpdateGroups*\n   *DemoteUpdateGroups*\n\n'
 	list.button = 'Remove'
 	list.sec = sec
 	return await core.sendlist(list)

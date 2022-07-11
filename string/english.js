@@ -187,8 +187,9 @@ var string = {
 			superchat_desc: 'Add Chat To SuperChat List',
 			superuser_desc: 'Make Someone A Super User Of Bot',
 			banchat_desc: 'Add Chat To BannedChat List',
+			jid_set_desc : 'Add Group Jid To {} List',
 			removed: '*{} Was Removed From {} List*',
-			remove_desc: 'Remove Chats From SuperChats,SuperUsers,Bannedchat',
+			remove_desc: 'Remove Chats From SuperChats,SuperUsers,Bannedchat,WelcomeMessageGroups,GoodByeMessageGroups,SubjectUpdateMessageGroups,EditUpdateGroups,MuteUpdateGroups,PromoteUpdateGroups,DemoteUpdateGroups',
 			superchat_help: 'Enter the chats into the Super Chat list using the .superchat command. Then the bot will only work in SuperChat..not applicable to private commands ... if there are no superchats the bot will work in all chats'
 		},
 		converter: {
@@ -221,12 +222,13 @@ var string = {
 			err: '```Login fail\nYour Database Url Is Not valid\nPlease Renew Your Database Url.. Use .register mongodb url```'
 		},
 		dict: {
-			desc: 'The dictionary.\nEg: .dict car',
-			title: '*The Result For Your Search* \n\n\n',
+			desc: 'The English dictionary.\nEg: .dict car',
+			title: '*The Result For Your Word* \n\n\n',
 			eg: '*Example:* ',
 			def: '*Definition:* ',
-			need: 'Please Use With Word',
-			gen: 'Loading... Please Wait...'
+			need: '*Enter A English Word*',
+			gen: '*Loading... Please Wait...*',
+			err: '*No English word like this can be found*'
 		},
 		download: {
 			needi: '*Reply To Any Image!*',
@@ -279,6 +281,16 @@ var string = {
 			desc: 'Applies the desired ffmpeg filter to the video.\n⌨️ Example: .ffmpeg fade=in:0:30',
 			edit: 'Applying Effect.. please wait',
 			need: 'Need Media and Filter Name!\nℹ️ Ex: ```.ffmpeg fade=in:0:30```\nℹ️ Ex: ```.ffmpeg curves=vintage, fps=fps=25```'
+		},
+		game: {
+			dice: {
+				desc: 'Dice Rolling Game',
+				process: '*Rolling*'
+			},
+			shells: {
+				desc: 'Shelling Game',
+				process: '*Shelling*'
+			},
 		},
 		gdrive: {
 			desc: 'Download Content From Google Drive Link',
@@ -544,6 +556,10 @@ var string = {
 			msg: '\n┏━━━━━━━━━━━━━━━━\n┃  ❖❖ RATINGS ❖❖\n┃\n┃  ✭✭✭✭✭ = {}\n┃  ✭✭✭✭✩ = {}\n┃  ✭✭✭✩✩ = {}\n┃  ✭✭✩✩✩ = {}\n┃  ✭✩✩✩✩ = {}\n┃\n┗━━━━━━━━━━━━━━━━',
 			need: 'Give Me The Best Rating'
 		},
+		readmore : {
+			desc: 'Make Readmore Text',
+			need: '*Reply To A Text... use / for split the text*'
+		},
 		removebg: {
 			desc: 'Removes the background of the photos.',
 			needapi: '*Need Api Key*\n```Please Add The Api Key Using Removebg Site remove.bg ```',
@@ -567,6 +583,11 @@ var string = {
 			need: '*You Must Enter Fake Action!*\nExisting Types: ```typing & recording & online & stop```',
 			scam_s: '*Fake Action : --{}--*',
 			err: '```Wrong Action Entered! Please use existing types.: typing & recording & online & stop```'
+		},
+		screenshot : {
+			desc : 'Take a screenshot of the site',
+			need : '*Please Enter A Url*',
+			error : '*Not Found Site Like This :(*'
 		},
 		start: {
 			shutdown: {
@@ -623,6 +644,14 @@ var string = {
 			dload: '*Downloading Content From Tiktok Link*',
 			uload: '*Uploading Content From Tiktok Link*',
 			error: '*I can not download your Tiktok Content :(*'
+		},
+		trt: {
+			desc: 'Language Transelate',
+			used: 'trt auto/en',
+			need_r : '*Reply To A Text*',
+			needlang : '*Need Two Language*\n*Example: .trt auto/en or .trt si/en*',
+			err : '*Can Not Translate This :(*',
+			done : '*TRANSLATION SUCCESSFULL*\n*FROM : {}*\n*TO : {}*\n*TEXT :* ```{}```'
 		},
 		truecaller: {
 			desc: 'Search Number In truecaller site',
