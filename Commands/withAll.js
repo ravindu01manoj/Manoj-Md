@@ -34,11 +34,11 @@ Manoj.z_note.start = async(core) => {
 		}
 	}
 
-	if(core.messageStubType === false) {
+	if(!core.messageStubType) {
 		return
 	}
 
-	switch (core.messageStubType.type) {
+	switch (core.messageStubType?.type) {
 	case 'add-update':
 		if(dataDb.WelcomeMessageGroups && dataDb.WelcomeMessageGroups.have(core.jid)) {
 			if(dataDb.WelcomeMessage) {
