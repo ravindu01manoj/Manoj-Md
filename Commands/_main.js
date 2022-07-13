@@ -43,7 +43,7 @@ Manoj.cmd.start = async(core) => {
 			}
 		})).fix()
 		command_filter.map(cmd => {
-			command_list += cmd.command[0] ? emoji[0] + string().menu.command + Pfix + cmd.command[0] + '\n' + (cmd.desc ? emoji[1] + string().menu.desc + cmd.desc + '\n' : '') + (cmd.help ? emoji[2] + string().menu.help + cmd.help + '\n\n' : '\n') : ''
+			command_list += cmd.command[0] ? emoji[0] + string().menu.command + Pfix + cmd.command[0] + '\n' + (cmd.desc ? emoji[1] + string().menu.desc + cmd.desc() + '\n' : '') + (cmd.help ? emoji[2] + string().menu.help + cmd.help() + '\n\n' : '\n') : ''
 		})
 		var msg = {}
 		msg.img = img
