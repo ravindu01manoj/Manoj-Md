@@ -10,7 +10,7 @@ Coded By Ravindu Manoj
 const { Rate, GetDB, GroupSetting } = Ravindu
 const { setlistgen, stringChange, changeChange, changelistgen, chatsettings, removechatslist, removestickercmdlist, addStickerCommand, removestickercmd } = GetDB
 const { rateus, addRate } = Rate
-const { isValidObject } = GroupSetting
+const { isValidObject, imgload } = GroupSetting
 const msgs = ['TEXT KEYWORDS\n' + readmore + '\n#group_name\n#member_count\n#group_description\n#group_owner\n#group_id\n#added_by\n#removed_by\n#joined_number\n#left_user\n#admin', 'Text Message Example ' + readmore + '\n{type:text}\n\n{text:Hello Example Text\n#group_owner}', 'Image Message Example' + readmore + '\n{type:img}\n\n{img:https://example.com/example.jpg}\nuse direct url or gp_dp or my_dp or user_dp\n\n{text:Hello Example Text\n#group_name}', 'Video Message Example' + readmore + '\n{type:video}\n\n{video:https://example.com/example.mp4}\n\n{text:Hello Example Text\n#group_name}', 'Button Image Message Example' + readmore + '{type:button}\n\n{text:Hello Example Text\n#group_name}\n\nUrl Buttons\n{url:GO TO URL|https://github.com/ravindu01manoj}\n{url:SUBSCRIBE YOUTUBE|https://youtube.com/c/TechToFuture}\n\nButtons\n{button:RATE US|rate}\n{button:NOTES|notes}\n{button:COMMANDS|help}\n\nImage (Use Direct Url Or user_dp Or my_dp Or gp_dp)\n{img:https://telegra.ph/file/1d7da58e35215ed3336c5.jpg}\n']
 
 Manoj.cmd.start = async(core) => {
@@ -46,7 +46,7 @@ Manoj.cmd.start = async(core) => {
 			command_list += cmd.command[0] ? emoji[0] + string().menu.command + Pfix + cmd.command[0] + '\n' + (cmd.desc ? emoji[1] + string().menu.desc + cmd.desc() + '\n' : '') + (cmd.help ? emoji[2] + string().menu.help + cmd.help() + '\n\n' : '\n') : ''
 		})
 		var msg = {}
-		msg.img = img
+		msg.img = await imgload(cote,img,core.sender)
 		msg.text = command_list
 		var dbtn = await core.buttongen(button)
 		msg.button = dbtn.button
@@ -218,7 +218,7 @@ Manoj.alive.start = async(core) => {
 		img,
 		button
 	} = patchAtext(dataDb.AliveMsg || string().alive.msg)
-	var msg = { img, text:text.setup(core) }
+	var msg = { img:await imgload(cote,img,core.sender), text:text.setup(core) }
 	var dbtn = await core.buttongen(button)
 	msg.button = dbtn.button
 	if(dbtn.type) {
@@ -235,7 +235,7 @@ Manoj.notes.start = async(core) => {
 		img,
 		button
 	} = patchAtext(dataDb.Notes || string().notes.msg)
-	var msg = { img, text:text.setup(core) }
+	var msg = { img:await imgload(cote,img,core.sender), text:text.setup(core) }
 	var dbtn = await core.buttongen(button)
 	msg.button = dbtn.button
 	if(dbtn.type) {

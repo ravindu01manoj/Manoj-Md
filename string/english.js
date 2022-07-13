@@ -575,7 +575,7 @@ var string = {
 			need : '*Please Reply To A Message*',
 			done : '*Successfully Changed {}*',
 			error : '*Not String Found Like This*',
-			listT : '*Manoj Multi-device Database Editor*\n\n*You Can use This Keywords For Every Strings*\n\n*KeyWords*\n\n```#user :- UserName\n#rate :- Rating Details\n#device :- User Device\n#ram :- Server Ram\n#storage :- Server Storage\n#myname :- Bot Number User Name```',
+			listT : '*Manoj Multi-device Database Editor*\n\n*You Can use This Keywords For Every Strings*\n\n*KeyWords*\n\n```#user :- UserName\n#rate :- Rating Details\n#device :- User Device\n#myname :- Bot Number User Name\n#host :- Server Host Name\n#cups :- Server Cpus Details\n#server_platform :- Server Platform Data\n#uptime :- Bot Uptime\n#ram :- Server Total Ram\n#freeRam :- Server Free Ram\n#browser :- Whatsapp Web Browser\n#date : Date Now\n#time :- Time Now\n```',
 			wrong : '*Canot Decrypt Your Reply Msg... Please Reply Like Example...*'
 		},
 		scam: {

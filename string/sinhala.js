@@ -587,7 +587,7 @@ var string = {
 			need : '*කරුණාකර පණිවිඩයකට පිළිතුරු දෙන්න*',
 			done : '*සාර්ථකව වෙනස් කරන ලදී {}*',
 			error : '*මෙවැනි තන්තුවක් හමු නොවීය*',
-			listT : '*Manoj Multi-device Database Editor*\n\n*ඔබට සෑම තන්තු සඳහාම මෙම මූල පද භාවිතා කළ හැක*\n\n*KeyWords*\n\n```#user :- UserName\n#rate :- ශ්‍රේණිගත කිරීමේ විස්තර\n#device :- පරිශීලක උපාංගය\n#ram :- Server Ram\n#storage :- Server Storage\n#myname :- Bot Number User Name```',
+			listT : '*Manoj Multi-device Database Editor*\n\n*ඔබට සෑම තන්තු සඳහාම මෙම මූල පද භාවිතා කළ හැක*\n\n*KeyWords*\n\n```#user :- UserName\n#rate :- ශ්‍රේණිගත කිරීමේ විස්තර\n#device :- පරිශීලක උපාංගය\n#myname :- Bot Number User Name\n#host :- Server Host Name\n#cups :- Server Cpus Details\n#server_platform :- Server Platform Data\n#uptime :- බොට් ක්‍රියාකාලය\n#ram :- Server Total Ram\n#freeRam :- Server Free Ram\n#browser :- Whatsapp Web Browser\n#date : දිනය\n#time :- වේලාව\n```',
 			wrong : '*ඔබේ පිළිතුර විකේතනය කළ නොහැක පණිවිඩය... කරුණාකර උදාහරණයක් ලෙස පිළිතුරු දෙන්න...*'
 		},
 		scam: {
