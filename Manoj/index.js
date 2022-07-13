@@ -254,7 +254,7 @@ module.exports = {
 		desc: () => string().chat_settings.jid_set_desc.bind("GoodByeMessageGroups"),
 		react: "👑"
 	},
-	gpdesc: () => {
+	gpdesc: {
 		command: [ "gpdesc", "ගෲප්ඩිස්" ],
 		type: "admin",
 		category: "admin",
