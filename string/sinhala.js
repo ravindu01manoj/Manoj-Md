@@ -121,7 +121,7 @@ var string = {
 			notfound: '*අයදුම්පත් බාගත කිරීමේ Url හමු නොවීය..!*',
 			download: '*ඔබේ APK ඩවුන්ලෝඩ් කෙරේ!*',
 			upload: '*ඔබගේ APK අප්ලෝඩ් කෙරේ!*',
-			info: '*නම: {}*\n\n*ගැන: {}*\n\n*අනුවාදය: {}*\n\n*වර්ගය: {}*\n\n*ශ්‍රේණිගත කිරීම: {}*\ n\n*ශ්‍රේණිගත කිරීම්: {}*\n\n*අන්තර්ගත ඇගයීම: {}*\n\n*සංවර්ධක: {}*\n\n*ස්ථාපන: {}*\n\n*අලුත් දේ: {} *\n\n*විස්තරය:*```{}```'
+			info: '*නම: {}*\n\n*ගැන: {}*\n\n*අනුවාදය: {}*\n\n*වර්ගය: {}*\n\n*ශ්‍රේණිගත කිරීම: {}*\ n\n*ශ්‍රේණිගත කිරීම්: {}*\n\n*අන්තර්ගත ඇගයීම: {}*\n\n*සංවර්ධක: {}*\n\n*ස්ථාපන: {}*\n\n*අලුත් දේ: {} *\n\n*විස්තරය:* ```{}```'
 		},
 		apks: {
 			desc: 'Playstore වෙතින් Apk සොයන්න',
@@ -587,7 +587,7 @@ var string = {
 			need : '*කරුණාකර පණිවිඩයකට පිළිතුරු දෙන්න*',
 			done : '*සාර්ථකව වෙනස් කරන ලදී {}*',
 			error : '*මෙවැනි තන්තුවක් හමු නොවීය*',
-			listT : '*Manoj Multi-device Database Editor*\n\n*ඔබට සෑම තන්තු සඳහාම මෙම මූල පද භාවිතා කළ හැක*\n\n*KeyWords*\n\n```#user :- UserName\n#rate :- ශ්‍රේණිගත කිරීමේ විස්තර\n#device :- පරිශීලක උපාංගය\n#ram :- Server Ram\n#storage :- Server Storage\n#my_name :- Bot Number User Name```',
+			listT : '*Manoj Multi-device Database Editor*\n\n*ඔබට සෑම තන්තු සඳහාම මෙම මූල පද භාවිතා කළ හැක*\n\n*KeyWords*\n\n```#user :- UserName\n#rate :- ශ්‍රේණිගත කිරීමේ විස්තර\n#device :- පරිශීලක උපාංගය\n#ram :- Server Ram\n#storage :- Server Storage\n#myname :- Bot Number User Name```',
 			wrong : '*ඔබේ පිළිතුර විකේතනය කළ නොහැක පණිවිඩය... කරුණාකර උදාහරණයක් ලෙස පිළිතුරු දෙන්න...*'
 		},
 		scam: {
