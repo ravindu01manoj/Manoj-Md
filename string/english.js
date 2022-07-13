@@ -733,14 +733,14 @@ var string = {
 			song: {
 				desc: 'Downloading Songs With Youtube',
 				need: '*Please Enter A Song Name*',
-				data: '*URL: {}*\n\n*Title: {}*\n\n*Channel: {}*\n\n*Views: {}*\n\n*Category: {}*\n\n*Likes : {}*\n\n*Description : {}*\n\n',
+				data: '*URL: {}*\n\n*Title: {}*\n\n*Channel: {}*\n\n*Views: {}*\n\n*Category: {}*\n\n*Likes : {}*\n\n*Description :* ```{}```\n\n',
 				download: '*I am Searching Your Song*',
 				upload: '*I am Uploading Your Song*'
 			},
 			video: {
 				desc: 'Downloading Videos With Youtube',
 				need: '*Please Enter A Youtube Url*',
-				data: '*URL: {}*\n\n*Title: {}*\n\n*Channel: {}*\n\n*Views: {}*\n\n*Category: {}*\n\n*Likes : {}*\n\n*Description : {}*\n\n',
+				data: '*URL: {}*\n\n*Title: {}*\n\n*Channel: {}*\n\n*Views: {}*\n\n*Category: {}*\n\n*Likes : {}*\n\n*Description :* ```{}```\n\n',
 				download: '*I am Searching Your Video*',
 				upload: '*I am Uploading Your Video*'
 			},
