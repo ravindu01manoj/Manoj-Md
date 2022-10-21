@@ -191,8 +191,11 @@ Manoj.tiktok.start = async(core) => {
 			await core.mediasend(core.input.cut('/-/')[0], core.input.cut('/-/')[1])
 		} else if(url == 'get') {
 			var data = await tiktokDownload(core.input)
+			var med = data.data.media
+			var aut = data.data.author
+			var text = '*TIKTOK CONTENT DOWNLOADER*\n\n*Title:* {}\n*Viwes:* {}\n*Likes:* {}\n*Comments:* {}\n*Share:* {}\n\n*Author Acc:* {}\n*NickName:* {}\n*Followers:* {}\n*Likes:* {}\n*Location:* {}\n*Signature:* {}\n'.bind(med.title, med.playCount, med.diggCount, med.commentCount, med.shareCount, aut.acc, aut.nickname, aut.followerCount, aut.heartCount, aut.location, aut.signature)
 			var s = {}
-			s.img = string().tiktok.img, s.text = '*TIKTOK CONTENT DOWNLOADER*\n\n*URL : ' + core.input + '*\n\n'
+			s.img = med.thumbnail, s.text = text
 			var i = await core.buttongen([{
 				urlButton: {
 					displayText: 'Go To TikTok',
@@ -201,17 +204,17 @@ Manoj.tiktok.start = async(core) => {
 			}, {
 				quickReplyButton: {
 					displayText: 'WATERMARK',
-					id: 'tiktokvideo/-/' + data.wm
+					id: 'tiktokvideo/-/' + med.watermark_url
 				}
 			}, {
 				quickReplyButton: {
 					displayText: 'NO-WATERMARK',
-					id: 'tiktokvideo/-/' + data.nowm
+					id: 'tiktokvideo/-/' + med.no_watermark
 				}
 			}, {
 				quickReplyButton: {
 					displayText: 'ONLY-AUDIO',
-					id: 'tiktokaudio/-/' + data.audio
+					id: 'tiktokaudio/-/' + med.audio
 				}
 			}])
 			return s.button = i.button, i.type ? await core.sendbuttonimg(s) : await core.sendButtonimg(s)

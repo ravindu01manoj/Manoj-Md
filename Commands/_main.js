@@ -46,7 +46,7 @@ Manoj.cmd.start = async(core) => {
 			command_list += cmd.command[0] ? emoji[0] + string().menu.command + Pfix + cmd.command[0] + '\n' + (cmd.desc ? emoji[1] + string().menu.desc + cmd.desc() + '\n' : '') + (cmd.help ? emoji[2] + string().menu.help + cmd.help() + '\n\n' : '\n') : ''
 		})
 		var msg = {}
-		msg.img = await imgload(core,img,core.sender)
+		msg.img = await imgload(core, img, core.sender)
 		msg.text = command_list
 		var dbtn = await core.buttongen(button)
 		msg.button = dbtn.button
@@ -218,7 +218,7 @@ Manoj.alive.start = async(core) => {
 		img,
 		button
 	} = patchAtext(dataDb.AliveMsg || string().alive.msg)
-	var msg = { img:await imgload(core,img,core.sender), text:text.setup(core) }
+	var msg = { img:await imgload(core, img, core.sender), text:text.setup(core) }
 	var dbtn = await core.buttongen(button)
 	msg.button = dbtn.button
 	if(dbtn.type) {
@@ -235,7 +235,7 @@ Manoj.notes.start = async(core) => {
 		img,
 		button
 	} = patchAtext(dataDb.Notes || string().notes.msg)
-	var msg = { img:await imgload(core,img,core.sender), text:text.setup(core) }
+	var msg = { img:await imgload(core, img, core.sender), text:text.setup(core) }
 	var dbtn = await core.buttongen(button)
 	msg.button = dbtn.button
 	if(dbtn.type) {

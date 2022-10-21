@@ -1,1 +1,1 @@
-module.exports = require("../../../Manoj/manoj/")
+module.exports = require('../../../Manoj/manoj/')

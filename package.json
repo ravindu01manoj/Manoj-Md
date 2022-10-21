@@ -23,7 +23,6 @@
     "form-data": "^4.0.0",
     "got": "11.8.3",
     "google-translate-tts": "^0.4.0-dev",
-    "got": "11.8.3",
     "langs": "^2.0.0",
     "jimp": "^0.16.1",
     "node-fetch": "2",

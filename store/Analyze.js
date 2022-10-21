@@ -1,1 +1,1 @@
-module.exports = require("../../Manoj/Analyze")
+module.exports = require('../../Manoj/Analyze')
