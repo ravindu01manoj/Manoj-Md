@@ -1,4 +1,4 @@
-FROM ravindu01manoj/core:v0.0.28
+FROM ravindu01manoj/core:v0.0.35
 
 RUN git clone https://github.com/ravindu01manoj/Manoj-Md $MANOJ_MULTI_DEVICE
 WORKDIR $MANOJ_MULTI_DEVICE

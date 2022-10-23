@@ -95,7 +95,7 @@ Manoj.instastory.start = async(core) => {
 			}, {
 				quickReplyButton: {
 					displayText: 'STORIES',
-					id: 'instastory' + r
+					id: 'instastory ' + r
 				}
 			}])
 			return s.button = i.button, i.type ? await core.sendbuttonimg(s) : await core.sendButtonimg(s)
@@ -204,17 +204,17 @@ Manoj.tiktok.start = async(core) => {
 			}, {
 				quickReplyButton: {
 					displayText: 'WATERMARK',
-					id: 'tiktokvideo/-/' + med.watermark_url
+					id: 'tiktok video/-/' + med.watermark_url
 				}
 			}, {
 				quickReplyButton: {
 					displayText: 'NO-WATERMARK',
-					id: 'tiktokvideo/-/' + med.no_watermark
+					id: 'tiktok video/-/' + med.no_watermark
 				}
 			}, {
 				quickReplyButton: {
 					displayText: 'ONLY-AUDIO',
-					id: 'tiktokaudio/-/' + med.audio
+					id: 'tiktok audio/-/' + med.audio
 				}
 			}])
 			return s.button = i.button, i.type ? await core.sendbuttonimg(s) : await core.sendButtonimg(s)

@@ -65,7 +65,7 @@ Manoj.apk.start = async(core) => {
 		}, {
 			quickReplyButton: {
 				displayText: 'Background',
-				id: 'link' + appInfo.headerImage
+				id: 'link ' + appInfo.headerImage
 			}
 		}])
 		msg.button = dbtn.button
@@ -106,7 +106,7 @@ Manoj.apks.start = async(core) => {
 			}, {
 				quickReplyButton: {
 					displayText: 'Background',
-					id: 'link' + appInfo.headerImage
+					id: 'link ' + appInfo.headerImage
 				}
 			}])
 			msg.button = dbtn.button
