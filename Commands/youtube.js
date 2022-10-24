@@ -74,6 +74,7 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 
 		return await core.sendButtonimg(msg)
 	} catch(e) {
+		console.log(e)
 		return await core.send(string().youtube.error)
 	}
 }
