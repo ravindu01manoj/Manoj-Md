@@ -16,7 +16,7 @@ Manoj.backup.start = async(core) => {
 
 Manoj.restore.start = async(core) => {
 	var data = await core.download()
-	if(data.buffer) {
+	if(!data.buffer) {
 		return await core.reply('*Please Reply To Backup File !*')
 	}
 
