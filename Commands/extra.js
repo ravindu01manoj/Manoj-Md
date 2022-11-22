@@ -10,15 +10,21 @@ Coded By Ravindu Manoj
 var Url_Regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 const { calAge, calculater, translate, getSiteScreenshot } = Ravindu
 Manoj.del.start = async(core) => {
-	if(!core.Reply || !core.Reply_key.fromMe) {
+	if(!core.Reply) {
 		return
+	}
+
+	if(!core.Reply_key.fromMe) {
+		if(!await core.amAdmin()) {
+			return
+		}
 	}
 
 	if(!core.fromMe && !core.checkload(core.Reply_key)) {
 		return await core.reply('*Do Not Try To Play With Artificial Intelligence...!*')
 	}
 
-	await core.delete(core.Reply_key)
+	await core.delete({ key:core.Reply_key })
 }
 
 Manoj.react.start = async(core) => {
@@ -78,7 +84,7 @@ Manoj.url.start = async(core) => {
 		return core.reply(string().url.need)
 	}
 
-	var filepath = './temp/urlaimg.' + (data.type === 'image' ? 'jpg' : 'mp4')
+	var filepath = './temp/urlaimg.' + (data.type === 'image' ? 'png' : 'mp4')
 	fs.writeFileSync(filepath, data.buffer)
 	var up = await core.send(string().url.dop)
 	await core.reply(await TelegraPh(filepath))

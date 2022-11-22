@@ -90,6 +90,13 @@ module.exports = {
 		help: () => 'attpD example',
 		react: '🏖️'
 	},
+	backup: {
+		command: [ 'backup' ],
+		type: 'private',
+		category: 'profile',
+		desc: 'BackUp Your Bot Details',
+		react: '👑'
+	},
 	banchat: {
 		command: [ 'banchat' ],
 		type: 'private',
@@ -578,6 +585,13 @@ module.exports = {
 		category: 'main',
 		desc: () => string().report.desc,
 		react: '🕵️'
+	},
+	restore: {
+		command: [ 'restore' ],
+		type: 'private',
+		category: 'profile',
+		desc: 'Restore Your Bot Details',
+		react: '👑'
 	},
 	revoke: {
 		command: [ 'revoke', 'රිවෝක්' ],

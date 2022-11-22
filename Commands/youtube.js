@@ -56,11 +56,21 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 
 		var vid = type.key
 		if(type.type == 'text') {
-			var search = await youtube.Search(type.key)
+			try {
+				var search = await youtube.Search(type.key)
+			} catch(e) {
+				onsole.log('key ', e)
+			}
+
 			vid = search[0].videoId
 		}
 
-		var data = await youtube.SearchById(vid, cmds)
+		try {
+			var data = await youtube.SearchById(vid, cmds)
+		} catch(e) {
+			console.log('id ', e)
+		}
+
 
 		var msg = {}
 		msg.img = data.thumbnail

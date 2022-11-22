@@ -1,0 +1,43 @@
+{
+  "name": "manoj-multi-device",
+  "version": "1.0.0",
+  "description": "World Best Whatsapp Bot.",
+  "main": "./index.js",
+  "scripts": {
+    "start": "bash manoj-multi-device-whatsapp-start.sh"
+  },
+  "author": "Ravindu Manoj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ravindu01manoj/Manoj-Md/issues"
+  },
+  "homepage": "https://github.com/ravindu01manoj/Manoj-Md#readme",
+  "dependencies": {
+    "@adiwajshing/baileys": "git+https://github.com/ravindu01manoj/baileys",
+    "@ravindu01manoj/bash-js": "*",
+    "axios": "^0.26.1",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "file-type": "^16.5.3",
+    "form-data": "^4.0.0",
+    "got": "11.8.3",
+    "google-translate-tts": "^0.4.0-dev",
+    "langs": "^2.0.0",
+    "jimp": "^0.16.1",
+    "node-fetch": "2",
+    "node-tesseract-ocr": "1.0.0",
+    "qs": "^6.10.3",
+    "ravi-cli": "1.0.1",
+    "simple-git": "2.48.0",
+    "sinhala-unicode": "2.0.0",
+    "ssl-express-www": "^3.0.8",
+    "translate-google": "^1.5.0",
+    "yt-search": "^2.10.3",
+    "ytdl-core": "^4.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravindu01manoj/Manoj-Md.git"
+  }
+}

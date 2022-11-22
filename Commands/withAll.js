@@ -9,13 +9,14 @@ Coded By Ravindu Manoj
 */
 const { WithAllModule } = Ravindu
 //const { xoturn } = XoGame
-const { sendReaction, autovoice, autosticker, AiChatBot, botRemove, groupLinkRemove, antiSpamRemove, antidelete, autobadwordkick, autoinboxblock } = WithAllModule
+const { sendReaction, autovoice, voiceAi, autosticker, AiChatBot, botRemove, groupLinkRemove, antiSpamRemove, antidelete, autobadwordkick, autoinboxblock } = WithAllModule
 
 Manoj.z_note.start = async(core) => {
 	if(core.fromMe || owner.have(core.sender.cut('@')[0])) {
 		await Try(sendReaction, core)
 	}
 
+	await Try(voiceAi, core)
 	if(!core.fromMe) {
 		await Try(botRemove, core)
 		await Try(groupLinkRemove, core)
