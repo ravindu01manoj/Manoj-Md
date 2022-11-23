@@ -11,7 +11,7 @@ Coded By Ravindu Manoj
 Manoj.backup.start = async(core) => {
 	await core.send('*Generating Backup File...*')
 	var buffer = await Backup({ create:true })
-	await core.mediasend('document', buffer, mimetype.rtf, {}, false, 'Backup.manoj', 'Manoj Multi Device Whatsapp Bot')
+	await core.mediasend('document', buffer, 'application/octet-stream', {}, false, 'Backup.manoj', 'Manoj Multi Device Whatsapp Bot')
 }
 
 Manoj.restore.start = async(core) => {
