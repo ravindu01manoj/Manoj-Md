@@ -9,9 +9,12 @@ Coded By Ravindu Manoj
 */
 
 Manoj.backup.start = async(core) => {
-	await core.send('*Generating Backup File...*')
+	var msg_1 = await core.send('*Generating Backup File...*')
+	msg_1 = await core.send('*Generating Backup File...test*', { edit:msg_1.key })
+	await core.send('*Generating Backup File...test 2*', { edit:msg_1.key })
+	msg_1 = await core.send('*Generating Backup File...test 3*')
 	var buffer = await Backup({ create:true })
-	await core.mediasend('document', buffer, 'application/octet-stream', {}, false, 'Backup.manoj', 'Manoj Multi Device Whatsapp Bot')
+	await core.mediasend('document', buffer, 'application/octet-stream', { edit:msg_1.key }, false, 'Backup.manoj', 'Manoj Multi Device Whatsapp Bot')
 }
 
 Manoj.restore.start = async(core) => {
