@@ -20,7 +20,7 @@ Manoj.cmd.start = async(core) => {
 		emoji,
 		button
 	} = patchAtext(dataDb.MenuHead || string().menu.header)
-	if(!core.input) {
+	if(!core.input || core.input == 'test') {
 		var category = []
 		Commands.map(command => {
 			if(command.category && command.category !== 'non') {
@@ -33,6 +33,13 @@ Manoj.cmd.start = async(core) => {
 		list.text = text.setup(core)
 		list.button = 'Select'
 		list.sec = makemenulist(category)
+		if(core.input == 'test') {
+			var msg_1 = await core.sendlist(list)
+			list.button = 'test@'
+			list.edit = msg_1.key
+			return await core.sendlist(list)
+		}
+
 		return await core.sendlist(list)
 	} else {
 		var command_list = text.setup(core) + '\n\n\n'
@@ -46,7 +53,7 @@ Manoj.cmd.start = async(core) => {
 			command_list += cmd.command[0] ? emoji[0] + string().menu.command + Pfix + cmd.command[0] + '\n' + (cmd.desc ? emoji[1] + string().menu.desc + cmd.desc() + '\n' : '') + (cmd.help ? emoji[2] + string().menu.help + cmd.help() + '\n\n' : '\n') : ''
 		})
 		var msg = {}
-		msg.img = await imgload(core, img, core.sender)
+		msg.img = await core.image({ logo:true, buffer:await imgload(core, img, core.sender) })
 		msg.text = command_list
 		var dbtn = await core.buttongen(button)
 		msg.button = dbtn.button
@@ -218,7 +225,7 @@ Manoj.alive.start = async(core) => {
 		img,
 		button
 	} = patchAtext(dataDb.AliveMsg || string().alive.msg)
-	var msg = { img:await imgload(core, img, core.sender), text:text.setup(core) }
+	var msg = { img:await core.image({ logo:true, buffer:await imgload(core, img, core.sender) }), text:text.setup(core) }
 	var dbtn = await core.buttongen(button)
 	msg.button = dbtn.button
 	if(dbtn.type) {
@@ -235,7 +242,7 @@ Manoj.notes.start = async(core) => {
 		img,
 		button
 	} = patchAtext(dataDb.Notes || string().notes.msg)
-	var msg = { img:await imgload(core, img, core.sender), text:text.setup(core) }
+	var msg = { img:await core.image({ logo:true, buffer:await imgload(core, img, core.sender) }), text:text.setup(core) }
 	var dbtn = await core.buttongen(button)
 	msg.button = dbtn.button
 	if(dbtn.type) {

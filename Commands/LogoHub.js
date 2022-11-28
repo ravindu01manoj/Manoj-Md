@@ -36,7 +36,7 @@ Manoj.logoA.start = async(core) => {
 	var res = await ephoto.CreateImageFromData()
 	var filepath = '/root/temp/' + randomName() + '.jpg'
 	await core.downloadAndStream(res, filepath, async() => {
-		await core.mediasend('image', filepath, dataDb.caption.setup(core))
+		await core.mediasend('image', filepath, dataDb.caption.setup(core), { logo:true, crop:true })
 		removefile(filepath)
 	})
 
@@ -73,7 +73,7 @@ Manoj.logoB.start = async(core) => {
 	var res = await ephoto.CreateImageFromData()
 	var filepath = '/root/temp/' + randomName() + '.jpg'
 	await core.downloadAndStream(res, filepath, async() => {
-		await core.mediasend('image', filepath, dataDb.caption.setup(core))
+		await core.mediasend('image', filepath, dataDb.caption.setup(core), { logo:true, crop:true })
 		removefile(filepath)
 	})
 }
@@ -98,7 +98,7 @@ Manoj.logoC.start = async(core) => {
 	var res = await ephoto.CreateImageFromdata()
 	var filepath = '/root/temp/' + randomName() + '.jpg'
 	await core.downloadAndStream(res, filepath, async() => {
-		await core.mediasend('image', filepath, dataDb.caption.setup(core))
+		await core.mediasend('image', filepath, dataDb.caption.setup(core), { logo:true, crop:true })
 		removefile(filepath)
 	})
 }

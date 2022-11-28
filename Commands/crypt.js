@@ -96,7 +96,7 @@ Manoj.dict.start = async(core) => {
 			}
 		}
 
-		await core.reply(msg + '*▼Audio▼*')
+		await core.reply(msg + (audio ? '*▼Audio▼*' : ''))
 		if(audio) {
 			await core.mediasend('voice', audio)
 		}

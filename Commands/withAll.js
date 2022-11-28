@@ -9,7 +9,7 @@ Coded By Ravindu Manoj
 */
 const { WithAllModule } = Ravindu
 //const { xoturn } = XoGame
-const { sendReaction, autovoice, voiceAi, autosticker, AiChatBot, botRemove, groupLinkRemove, antiSpamRemove, antidelete, autobadwordkick, autoinboxblock } = WithAllModule
+const { sendReaction, antiviweonce, autovoice, voiceAi, autosticker, AiChatBot, botRemove, groupLinkRemove, antiSpamRemove, antidelete, autobadwordkick, autoinboxblock } = WithAllModule
 
 Manoj.z_note.start = async(core) => {
 	if(core.fromMe || owner.have(core.sender.cut('@')[0])) {
@@ -24,6 +24,7 @@ Manoj.z_note.start = async(core) => {
 		await Try(antidelete, core)
 		if(core.message) {
 			//await Try(xoturn, core)
+			await Try(antiviweonce, core)
 			await Try(autobadwordkick, core)
 			await Try(autoinboxblock, core)
 			await Try(autovoice, core)

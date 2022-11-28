@@ -27,7 +27,7 @@ Manoj.info.start = async(core) => {
 			msg += string().info.bis.bind(bisdata.adr || 'non', bisdata.desc || 'non', bisdata.web[0] || 'non', bisdata.mail || 'non', bisdata.cat || 'non')
 		}
 
-		await core.mediasend('image', pic, msg)
+		await core.mediasend('image', pic, msg, { logo:true })
 	} else {
 		var pic = await core.profileUpdate({
 			dothis: 'profile-pic',
@@ -60,7 +60,7 @@ Manoj.info.start = async(core) => {
 		var msgc = string().info.userc.bind(userc, adminc, sri, usa, ru, ind, uk, idn, pak, ukr, mar, bgd, aze, (userc - totalc))
 		var msg = string().info.groupc.bind(metadata.sub, metadata.id || core.jid, metadata.owner || 'No Data', invite, msgc, metadata.desc)
 
-		await core.mediasend('image', pic, msg)
+		await core.mediasend('image', pic, msg, { logo:true })
 	}
 }
 

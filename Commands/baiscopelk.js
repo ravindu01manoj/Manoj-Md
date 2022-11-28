@@ -29,7 +29,7 @@ Manoj.sub.start = async(core) => {
 			await core.send(string().bcope.upload)
 			await core.mediasend('document', data.dl, data.meme, {}, false, data.filename)
 			if(data.img) {
-				await core.mediasend('image', data.img, string().bcope.cap.bind(data.name, data.writer))
+				await core.mediasend('image', data.img, string().bcope.cap.bind(data.name, data.writer), { logo:true })
 			}
 
 			return

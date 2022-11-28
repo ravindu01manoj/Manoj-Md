@@ -31,7 +31,7 @@ Manoj.tag.start = async(core) => {
 	const data = await core.groupUpdate('metadata')
 	var jids = [],
 		taglist = data.sub + string().tag.mem
-	data.members.map(async mem => {
+	data.members.map(mem => {
 		mem && (taglist += string().tag.tlist.replace('{a}', mem.id.split('@')[0]), jids.push(mem.id))
 	})
 	const msg = core.text ? core.text : taglist

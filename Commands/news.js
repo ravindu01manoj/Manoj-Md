@@ -39,7 +39,7 @@ Manoj.show.start = async(core) => {
 	try {
 		const web = await core.webdata(string().news.show.api.replace('{a}', core.text))
 		const sw = web[0].show
-		await core.mediasend('image', sw.image.original, string().news.show.msg.bind(sw.name, sw.type, sw.status, sw.summary, sw.officialSite))
+		await core.mediasend('image', sw.image.original, string().news.show.msg.bind(sw.name, sw.type, sw.status, sw.summary, sw.officialSite), { logo:true })
 	} catch{
 		await core.reply(string().news.show.err)
 	}
