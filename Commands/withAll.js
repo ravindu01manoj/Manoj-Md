@@ -7,8 +7,8 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-const { WithAllModule } = Ravindu
-//const { xoturn } = XoGame
+const { WithAllModule, XO } = Ravindu
+const { xoturncatch } = XO
 const { sendReaction, antiviweonce, autovoice, voiceAi, autosticker, AiChatBot, botRemove, groupLinkRemove, antiSpamRemove, antidelete, autobadwordkick, autoinboxblock } = WithAllModule
 
 Manoj.z_note.start = async(core) => {
@@ -23,7 +23,7 @@ Manoj.z_note.start = async(core) => {
 		await Try(antiSpamRemove, core)
 		await Try(antidelete, core)
 		if(core.message) {
-			//await Try(xoturn, core)
+			await Try(xoturncatch, core)
 			await Try(antiviweonce, core)
 			await Try(autobadwordkick, core)
 			await Try(autoinboxblock, core)

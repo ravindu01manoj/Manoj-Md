@@ -73,7 +73,7 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 
 
 		var msg = {}
-		msg.img = data.thumbnail
+		msg.img = await core.image({ logo:true, buffer:data.thumbnail })
 		msg.text = string().youtube[cmds].data.bind(data.url, data.title, data.Channel, data.view, data.category, data.likes, data.desc)
 
 		var dbtn = await core.buttongen(await youtube.gen(data, cmds))

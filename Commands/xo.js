@@ -7,77 +7,74 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-// const { XoGame } = Ravindu
-// const { Game, getSession, buttonxo, makexobutton } = XoGame
-//
-// Manoj.xo.start = async(core) => {
-// if(core.input && core.input.have('startgame') && core.input.have('/')) {
-// var id = core.input.replace('startgame', '')
-// var game = false
-// var data = getSession('have', id, core.jid)
-// if(data !== false && data.state === 'playing') {
-// return await core.reply('*Please End The Old Game Frist...*')
-// }
-//
-// if(data === false) {
-// var ids = id.cut('/')
-// game = new Game(ids[0], ids[1], ids[2] || 'easy', core.jid)
-// game = game.updateName(core.name)
-// } else {
-// game = data.newGame().updateName(core.name)
-// }
-//
-// if(game === false) {
-// return
-// }
-//
-// var xob = makexobutton({ game })
-// var dbtn = await core.buttongen(buttonxo(game).end)
-// xob.button = dbtn.button
-// if(dbtn.type) {
-// await core.sendbuttonimg(xob)
-// } else {
-// await core.sendButtonimg(xob)
-// }
-//
-// if(game.turn === 'BOT') {
-// game = game.updateDifficulty(id.cut('/')[2])
-// await core.send('I Am Thinking....')
-// if(game.difficulty == 'easy') {
-// await core.sleep(500)
-// game = game.easyAi()
-// } else if(game.difficulty == 'hard') {
-// await core.sleep(1500)
-// game = game.manojExpertAI()
-// }
-//
-// game = game.changeTurn()
-//
-// var xob = makexobutton({ game })
-// var dbtn = await core.buttongen(buttonxo(game).end)
-// xob.button = dbtn.button
-// if(dbtn.type) {
-// await core.sendbuttonimg(xob)
-// } else {
-// await core.sendButtonimg(xob)
-// }
-// }
-//
-// return getSession('set', game)
-// }
-//
-// var O = core.Reply ? core.Reply.jid.cut(':')[0].cut('@')[0] : 'BOT'
-// var X = core.sender.cut(':')[0].cut('@')[0]
-// var data = { X, O, turn:X, ON:O, XN:core.name, board:'' }
-// var xob = makexobutton({ game:data })
-// var dbtn = await core.buttongen(buttonxo({ x:X, o:O }).start)
-// xob.button = dbtn.button
-// if(dbtn.type) {
-// await core.sendbuttonimg(xob)
-// } else {
-// await core.sendButtonimg(xob)
-// }
-//
-// return
-// }
-//
+const { XOgame, createOrUpdateXogame } = Ravindu.XO
+
+Manoj.xo.start = async(core) => {
+	if(core.input && core.input.toLowerCase() == 'bot') {
+		var list = {
+			title: 'Select Difficulty',
+			button: 'Difficulty',
+			sec: [{
+				title: 'Difficulty Levels',
+				rows: [
+					{
+						title: 'EASY',
+						rowId: 'xo easy'
+					},
+					{
+						title: 'NORMAL',
+						rowId: 'xo normal'
+					},
+					{
+						title: 'HARD',
+						rowId: 'xo hard'
+					},
+				]
+			}]
+		}
+		return await core.sendlist(list)
+	}
+
+	const withAi = core.input == 'easy' || core.input == 'normal' || core.input == 'hard'
+	const secondPlayer = withAi ? 'Manoj-Ai-XO' : core.Reply ? core.decodejid(core.Reply.jid) : Array.isArray(core.mention) && core.mention[0] ? core.mention[0] : ''
+	if(!secondPlayer) {
+		return await core.reply('*Use Bot keyword For Play Xo With Ai Or Reply Or Mention AnyOne*')
+	}
+
+	var data = {
+		players: [core.sender, secondPlayer],
+		state: 'playing'
+	}
+	if(core.isgroup) {
+		data.group = core.jid
+	}
+
+	if(withAi) {
+		data.difficulty = core.input
+	}
+
+	var isCreated = createOrUpdateXogame(data)
+	if(isCreated == 'playing') {
+		return await core.reply('*Please Finish The Old Game Before Starting A New Game*')
+	}
+
+	var xo = new XOgame(isCreated)
+	var msg = xo.createMessage()
+	await core.mediasend('image', msg.image, msg.text, {
+		logo: true,
+		mimetype: 'image/png'
+	})
+	if(xo.game.turn == 'Manoj-Ai-XO') {
+		await core.sleep(500)
+		await core.send('*Thinking....*')
+		await core.sleep(1000)
+		xo.ai()
+		var msg = xo.createMessage()
+		await core.mediasend('image', msg.image, msg.text, {
+			logo: true,
+			mimetype: 'image/png'
+		})
+	}
+
+	await xo.update()
+}
