@@ -16,6 +16,7 @@ Manoj.xo.start = async(core) => {
 			button: 'Difficulty',
 			sec: [{
 				title: 'Difficulty Levels',
+				text : '\n Tic Tac Toe',
 				rows: [
 					{
 						title: 'EASY',
@@ -59,7 +60,7 @@ Manoj.xo.start = async(core) => {
 	}
 
 	var xo = new XOgame(isCreated)
-	var msg = xo.createMessage()
+	var msg = await xo.createMessage()
 	await core.mediasend('image', msg.image, msg.text, {
 		logo: true,
 		mimetype: 'image/png'
@@ -69,7 +70,7 @@ Manoj.xo.start = async(core) => {
 		await core.send('*Thinking....*')
 		await core.sleep(1000)
 		xo.ai()
-		var msg = xo.createMessage()
+		var msg = await xo.createMessage()
 		await core.mediasend('image', msg.image, msg.text, {
 			logo: true,
 			mimetype: 'image/png'
