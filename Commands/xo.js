@@ -7,29 +7,31 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-const { XOgame, createOrUpdateXogame } = Ravindu.XO
+const {
+	XOgame,
+	createOrUpdateXogame
+} = Ravindu.XO
 
 Manoj.xo.start = async(core) => {
 	if(core.input && core.input.toLowerCase() == 'bot') {
 		var list = {
+			text: '\n Tic Tac Toe',
 			title: 'Select Difficulty',
 			button: 'Difficulty',
 			sec: [{
 				title: 'Difficulty Levels',
-				text : '\n Tic Tac Toe',
-				rows: [
-					{
-						title: 'EASY',
-						rowId: 'xo easy'
-					},
-					{
-						title: 'NORMAL',
-						rowId: 'xo normal'
-					},
-					{
-						title: 'HARD',
-						rowId: 'xo hard'
-					},
+				rows: [{
+					title: 'EASY',
+					rowId: 'xo easy'
+				},
+				{
+					title: 'NORMAL',
+					rowId: 'xo normal'
+				},
+				{
+					title: 'HARD',
+					rowId: 'xo hard'
+				},
 				]
 			}]
 		}
