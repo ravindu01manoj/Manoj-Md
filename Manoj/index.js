@@ -934,8 +934,9 @@ module.exports = {
 	xo: {
 		command: [ 'xo', 'tictactoe' ],
 		type: type_bot,
-		category: 'main',
-		desc: () => 'XO game',
+		category: 'game',
+		desc: () => 'Tic-Tac-Toe (XO) game',
+		help: () => 'xo bot or xo @mention or reply',
 		react: '❌'
 	},
 	ytd: {
