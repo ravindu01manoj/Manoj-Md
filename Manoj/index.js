@@ -133,6 +133,14 @@ module.exports = {
 		desc: () => string().set.desc,
 		react: '📝'
 	},
+	chess: {
+		command: [ 'chess', 'move' ],
+		type: type_bot,
+		category: 'game',
+		desc: () => 'Chess game',
+		help: () => 'chess help',
+		react: '♟️'
+	},
 	cmd: {
 		command: [ 'cmd', 'menu', 'help', 'list', 'මෙනු', 'ලිස්ට්', 'උදව්', 'කමාන්ඩ්' ],
 		type: type_bot,

@@ -42,6 +42,7 @@ Manoj.yts.start = async(core) => {
 
 		return await core.delete(st)
 	} catch(e) {
+		console.log(e)
 		return await core.send(string().youtube.yts.error)
 	}
 }
@@ -56,20 +57,12 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 
 		var vid = type.key
 		if(type.type == 'text') {
-			try {
-				var search = await youtube.Search(type.key)
-			} catch(e) {
-				onsole.log('key ', e)
-			}
+			var search = await youtube.Search(type.key)
 
 			vid = search[0].videoId
 		}
 
-		try {
-			var data = await youtube.SearchById(vid, cmds)
-		} catch(e) {
-			console.log('id ', e)
-		}
+		var data = await youtube.SearchById(vid, cmds)
 
 
 		var msg = {}
@@ -84,7 +77,6 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 
 		return await core.sendButtonimg(msg)
 	} catch(e) {
-		console.log(e)
 		return await core.send(string().youtube.error)
 	}
 }

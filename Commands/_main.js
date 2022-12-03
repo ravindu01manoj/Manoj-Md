@@ -35,6 +35,7 @@ Manoj.cmd.start = async(core) => {
 		list.sec = makemenulist(category)
 		if(core.input == 'test') {
 			var msg_1 = await core.sendlist(list)
+			list.text = 'xdxx'
 			list.button = 'test@'
 			list.edit = msg_1.key
 			return await core.sendlist(list)
