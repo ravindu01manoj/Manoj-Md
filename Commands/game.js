@@ -140,7 +140,8 @@ Manoj.chess.start = async(core) => {
 			var message = await chess.createMessage(state)
 			await core.mediasend('image', message.image, message.text, {
 				logo: true,
-				mimetype: 'image/png'
+				mimetype: 'image/png',
+				thumb:true
 			})
 			if(state.state == 'Checkmate') {
 				chess.gameover({
@@ -214,7 +215,8 @@ Watch The Board its named a-h(columns) And 1-8(rows)
 	var msg = await chess.createMessage(state)
 	await core.mediasend('image', msg.image, msg.text, {
 		logo: true,
-		mimetype: 'image/png'
+		mimetype: 'image/png',
+		thumb:true
 	})
 	return chess.update()
 }
