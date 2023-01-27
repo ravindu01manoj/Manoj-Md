@@ -1,12 +1,16 @@
 /*
 Manoj Md Whatsapp Bot
 
+website: https://ravindumanoj.ml
 Telegram: https://t.me/RavinduManoj
 Facebook: https://www.facebook.com/ravindu.manoj.79
 Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
+const axios = require('axios')
+var { ravindumanoj_api_key } = require('../Details.js')
+var Api_url = 'https://api-ravindumanoj.ml/'
 
 const { Facebook, Twitter, Instagram, mediafire, gitclone, googleImage, tiktoklink, tiktokDownload, truecaller, googleDrive, PDFMaker, patchNovels } = Ravindu
 
@@ -23,9 +27,17 @@ Manoj.insta.start = async(core) => {
 
 	try {
 		await core.send((dataDb.InstaDownload || string().insta.dload).setup(core))
-		var data = await Instagram.downloader(url)
+		var data = await axios({
+			method: 'GET',
+			url : Api_url,
+			param : {
+				api:ravindumanoj_api_key,
+				code: 'instagram',
+				url
+			}
+		})
 		await core.send((dataDb.InstaUplaod || string().insta.uload).setup(core))
-		var datas = await core.bufferType(data.result.link)
+		var datas = await core.bufferType(data.data.result.link)
 		await core.mediasend(datas.type, datas.buffer, data.result.desc || dataDb.caption.setup(core))
 	} catch(e) {
 		await core.reply(string().insta.error)
@@ -47,7 +59,16 @@ Manoj.gimg.start = async(core) => {
 
 	try {
 		await core.send(string().gimg.dload)
-		var images = await googleImage.download(core.input.replace(/ /g, '+'))
+		var data = await axios({
+			method: 'GET',
+			url : Api_url,
+			param : {
+				api:ravindumanoj_api_key,
+				code: 'googleImage',
+				q:core.input.replace(/ /g, '+')
+			}
+		})
+		var images = data.data.results
 		if(images.length < 2) {
 			return await core.send(string().gimg.error)
 		}
@@ -113,7 +134,16 @@ Manoj.fb.start = async(core) => {
 
 	try {
 		await core.send((dataDb.FbDownload || string().fb.dload).setup(core))
-		var buffer = await Facebook.downloader(url)
+		var data = await axios({
+			method: 'GET',
+			url : Api_url,
+			param : {
+				api:ravindumanoj_api_key,
+				code: 'fb',
+				url
+			}
+		})
+		var buffer = data.data.results.dl_urls.Normal_Quality
 		var FileName = randomName() + '.mp4'
 		await core.send((dataDb.FbUplaod || string().fb.uload).setup(core))
 		await core.downloadUrl(buffer, FileName, async() => {
@@ -257,7 +287,7 @@ Manoj.truecaller.start = async(core) => {
 	}
 
 	try {
-		var r = await truecaller(n)
+		var r = await truecaller(n, 'https://api-ravindumanoj.ml/?code=truecaller&api=' + ravindumanoj_api_key + '&number=')
 		if(!r) {
 			return await core.reply(string().truecaller.error)
 		}
@@ -278,7 +308,7 @@ Manoj.twitter.start = async(core) => {
 
 	try {
 		await core.send((dataDb.TwitterDownload || string().twitter.dload).setup(core))
-		var data = await Twitter.download(id)
+		var data = await Twitter.download(id, 'https://api-ravindumanoj.ml/?code=truecaller&api=' + ravindumanoj_api_key + '&url=')
 		await core.send((dataDb.TwitterUplaod || string().twitter.uload).setup(core))
 		var text = string().twitter.text.bind(core.input.getbetween('com/', '/')[0], data.type, data.text)
 		if(data.type == 'image') {

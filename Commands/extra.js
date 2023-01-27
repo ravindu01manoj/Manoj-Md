@@ -1,12 +1,16 @@
 /*
 Manoj Md Whatsapp Bot
 
+website: https://ravindumanoj.ml
 Telegram: https://t.me/RavinduManoj
 Facebook: https://www.facebook.com/ravindu.manoj.79
 Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
+var { ravindumanoj_api_key } = require('../Details.js')
+var Api_url = 'https://api-ravindumanoj.ml/'
+
 var Url_Regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 const { calAge, calculater, translate, getSiteScreenshot } = Ravindu
 Manoj.del.start = async(core) => {

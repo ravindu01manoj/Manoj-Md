@@ -1,12 +1,15 @@
 /*
 Manoj Md Whatsapp Bot
 
+website: https://ravindumanoj.ml
 Telegram: https://t.me/RavinduManoj
 Facebook: https://www.facebook.com/ravindu.manoj.79
 Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
+var { ravindumanoj_api_key } = require('../Details.js')
+var Api_url = 'https://api-ravindumanoj.ml/'
 Manoj.info.start = async(core) => {
 	if(core.Reply || !core.isgroup || core.mention) {
 		user = core.Reply ? core.Reply.jid : core.mention ? core.mention.fix()[0] : core.jid

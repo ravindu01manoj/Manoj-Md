@@ -11,5 +11,6 @@ module.export = {
 	name: 'Manoj Multi-device Whatsapp Bot',
 	version: require('./package.json').version,
 	branch: 'master',
-	author: require('./package.json').author
+	author: require('./package.json').author,
+	ravindumanoj_api_key : process.env.Ravindu_Manoj_Api || 'YourApiKey' // go to https://ravindumanoj.ml/api
 }

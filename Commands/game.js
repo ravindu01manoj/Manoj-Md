@@ -1,12 +1,15 @@
 /*
 Manoj Md Whatsapp Bot
 
+website: https://ravindumanoj.ml
 Telegram: https://t.me/RavinduManoj
 Facebook: https://www.facebook.com/ravindu.manoj.79
 Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
+var { ravindumanoj_api_key } = require('../Details.js')
+var Api_url = 'https://api-ravindumanoj.ml/'
 const { XO, chess } = Ravindu
 const { XOgame, createOrUpdateXogame } = XO
 const { ChessGame, getScore, getGamePosition, createOrUpdateChessgame } = chess
