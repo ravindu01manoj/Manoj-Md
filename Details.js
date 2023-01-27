@@ -9,8 +9,8 @@ Coded By Ravindu Manoj
 */
 module.export = {
 	name: 'Manoj Multi-device Whatsapp Bot',
-	version: require('./package.json').version,
+	version: require('./pre-package.json').version,
 	branch: 'master',
-	author: require('./package.json').author,
+	author: require('./pre-package.json').author,
 	ravindumanoj_api_key : process.env.Ravindu_Manoj_Api || 'YourApiKey' // go to https://ravindumanoj.ml/api
 }
