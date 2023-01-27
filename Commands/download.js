@@ -30,14 +30,14 @@ Manoj.insta.start = async(core) => {
 		var data = await axios({
 			method: 'GET',
 			url : Api_url,
-			param : {
+			params : {
 				api:ravindumanoj_api_key,
 				code: 'instagram',
 				url
 			}
 		})
 		await core.send((dataDb.InstaUplaod || string().insta.uload).setup(core))
-		var datas = await core.bufferType(data.data.result.link)
+		var datas = await core.bufferType(data.data.result.url)
 		await core.mediasend(datas.type, datas.buffer, data.result.desc || dataDb.caption.setup(core))
 	} catch(e) {
 		await core.reply(string().insta.error)
@@ -62,7 +62,7 @@ Manoj.gimg.start = async(core) => {
 		var data = await axios({
 			method: 'GET',
 			url : Api_url,
-			param : {
+			params : {
 				api:ravindumanoj_api_key,
 				code: 'googleImage',
 				q:core.input.replace(/ /g, '+')
@@ -137,7 +137,7 @@ Manoj.fb.start = async(core) => {
 		var data = await axios({
 			method: 'GET',
 			url : Api_url,
-			param : {
+			params : {
 				api:ravindumanoj_api_key,
 				code: 'fb',
 				url
