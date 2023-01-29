@@ -9,7 +9,6 @@ Youtube: https://youtube.com/c/TechToFuture
 Coded By Ravindu Manoj
 */
 const axios = require('axios')
-var { ravindumanoj_api_key } = require('../Details.js')
 var Api_url = 'https://api-ravindumanoj.ml/'
 
 const { Facebook, Twitter, Instagram, mediafire, gitclone, googleImage, tiktoklink, tiktokDownload, truecaller, googleDrive, PDFMaker, patchNovels } = Ravindu
@@ -31,7 +30,7 @@ Manoj.insta.start = async(core) => {
 			method: 'GET',
 			url : Api_url,
 			params : {
-				api:ravindumanoj_api_key,
+				api:process.env.Ravindu_Manoj_Api,
 				code: 'instagram',
 				url
 			}
@@ -78,7 +77,7 @@ Manoj.gimg.start = async(core) => {
 			method: 'GET',
 			url : Api_url,
 			params : {
-				api:ravindumanoj_api_key,
+				api:process.env.Ravindu_Manoj_Api,
 				code: 'googleImage',
 				q:core.input
 			}
@@ -157,7 +156,7 @@ Manoj.fb.start = async(core) => {
 			method: 'GET',
 			url : Api_url,
 			params : {
-				api:ravindumanoj_api_key,
+				api:process.env.Ravindu_Manoj_Api,
 				code: 'fb',
 				url
 			}
@@ -193,7 +192,7 @@ Manoj.mfire.start = async(core) => {
 			method: 'GET',
 			url : Api_url,
 			params : {
-				api:ravindumanoj_api_key,
+				api:process.env.Ravindu_Manoj_Api,
 				code: 'mediafire',
 				url
 			}
@@ -251,7 +250,7 @@ Manoj.tiktok.start = async(core) => {
 				method: 'GET',
 				url : Api_url,
 				params : {
-					api:ravindumanoj_api_key,
+					api:process.env.Ravindu_Manoj_Api,
 					code: 'tiktok',
 					url : core.input
 				}
@@ -326,7 +325,7 @@ Manoj.truecaller.start = async(core) => {
 	}
 
 	try {
-		var r = await truecaller(n, 'https://api-ravindumanoj.ml/?code=truecaller&api=' + ravindumanoj_api_key + '&number=')
+		var r = await truecaller(n, 'https://api-ravindumanoj.ml/?code=truecaller&api=' + process.env.Ravindu_Manoj_Api + '&number=')
 		if(!r) {
 			return await core.reply(string().truecaller.error)
 		}
@@ -347,7 +346,7 @@ Manoj.twitter.start = async(core) => {
 
 	try {
 		await core.send((dataDb.TwitterDownload || string().twitter.dload).setup(core))
-		var data = await Twitter.download(id, 'https://api-ravindumanoj.ml/?code=truecaller&api=' + ravindumanoj_api_key + '&url=')
+		var data = await Twitter.download(id, 'https://api-ravindumanoj.ml/?code=truecaller&api=' + process.env.Ravindu_Manoj_Api + '&url=')
 		await core.send((dataDb.TwitterUplaod || string().twitter.uload).setup(core))
 		var text = string().twitter.text.bind(core.input.getbetween('com/', '/')[0], data.type, data.text)
 		if(data.type == 'image') {
