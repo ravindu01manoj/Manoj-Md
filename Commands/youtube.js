@@ -61,7 +61,6 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 		var vid = type.key
 		if(type.type == 'text') {
 			var search = await youtube.Search(type.key)
-
 			vid = search[0].videoId
 		}
 

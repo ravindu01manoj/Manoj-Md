@@ -36,9 +36,24 @@ Manoj.insta.start = async(core) => {
 				url
 			}
 		})
+		if(data.data.code != 200) {
+			return await core.reply('Invalid Request' + data.data.error)
+		}
+
 		await core.send((dataDb.InstaUplaod || string().insta.uload).setup(core))
-		var datas = await core.bufferType(data.data.result.url)
-		await core.mediasend(datas.type, datas.buffer, data.result.desc || dataDb.caption.setup(core))
+
+		var linkdata = await linkPreview(core.input)
+		if(!linkdata.mime || linkdata.mime === 'text/html') {
+			return await core.reply('*I Am Not Expert For Download This Link*')
+		}
+
+		if(linkdata.mime.cut('/')[0] == 'image') {
+			return await core.mediasend('image', data.data.result.url, dataDb.caption.setup(core))
+		}
+
+		if(linkdata.mime.cut('/')[0] == 'video') {
+			return await core.mediasend('video', data.data.result.url, dataDb.caption.setup(core))
+		}
 	} catch(e) {
 		await core.reply(string().insta.error)
 	}
@@ -65,9 +80,13 @@ Manoj.gimg.start = async(core) => {
 			params : {
 				api:ravindumanoj_api_key,
 				code: 'googleImage',
-				q:core.input.replace(/ /g, '+')
+				q:core.input
 			}
 		})
+		if(data.data.code != 200) {
+			return await core.reply('Invalid Request' + data.data.error)
+		}
+
 		var images = data.data.results
 		if(images.length < 2) {
 			return await core.send(string().gimg.error)
@@ -143,6 +162,10 @@ Manoj.fb.start = async(core) => {
 				url
 			}
 		})
+		if(data.data.code != 200) {
+			return await core.reply('Invalid Request' + data.data.error)
+		}
+
 		var buffer = data.data.results.dl_urls.Normal_Quality
 		var FileName = randomName() + '.mp4'
 		await core.send((dataDb.FbUplaod || string().fb.uload).setup(core))
@@ -166,20 +189,24 @@ Manoj.mfire.start = async(core) => {
 
 	try {
 		await core.send((dataDb.MfireDownload || string().mfire.dload).setup(core))
-		var data = await mediafire(url)
-		await core.send((dataDb.MfireUplaod || string().mfire.uload).setup(core))
-		var linkdata = await linkPreview(data.link)
-		var FileName = randomName() + linkdata.ext
-		await core.downloadUrl(data.link, FileName, async() => {
-			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
-			return removefile(FileName)
-		}, async() => {
-			await core.reply(string().mfire.error)
-			return removefile(FileName)
+		var data = await axios({
+			method: 'GET',
+			url : Api_url,
+			params : {
+				api:ravindumanoj_api_key,
+				code: 'mediafire',
+				url
+			}
 		})
+		if(data.data.code != 200) {
+			return await core.reply('Invalid Request' + data.data.error)
+		}
+
+		var info = data.data.result
+		await core.send((dataDb.MfireUplaod || string().mfire.uload).setup(core))
+		await core.mediasend('document', info.link, mimetype[info.ext] || 'application/octet-stream', {}, false, info.filename)
 	} catch(e) {
 		await core.reply(string().mfire.error)
-		return removefile(FileName)
 	}
 }
 
@@ -220,10 +247,22 @@ Manoj.tiktok.start = async(core) => {
 			await core.send((dataDb.TiktokUplaod || string().tiktok.uload).setup(core))
 			await core.mediasend(core.input.cut('/-/')[0], core.input.cut('/-/')[1])
 		} else if(url == 'get') {
-			var data = await tiktokDownload(core.input)
-			var med = data.data.media
-			var aut = data.data.author
-			var text = '*TIKTOK CONTENT DOWNLOADER*\n\n*Title:* {}\n*Viwes:* {}\n*Likes:* {}\n*Comments:* {}\n*Share:* {}\n\n*Author Acc:* {}\n*NickName:* {}\n*Followers:* {}\n*Likes:* {}\n*Location:* {}\n*Signature:* {}\n'.bind(med.title, med.playCount, med.diggCount, med.commentCount, med.shareCount, aut.acc, aut.nickname, aut.followerCount, aut.heartCount, aut.location, aut.signature)
+			var data = await axios({
+				method: 'GET',
+				url : Api_url,
+				params : {
+					api:ravindumanoj_api_key,
+					code: 'tiktok',
+					url : core.input
+				}
+			})
+			if(data.data.code != 200) {
+				return await core.reply('Invalid Request' + data.data.error)
+			}
+
+			var med = data.data.results.media
+			var aut = data.data.results.author
+			var text = '*TIKTOK CONTENT DOWNLOADER*\n\n*Title:* {}\n*Viwes:* {}\n*Likes:* {}\n*Comments:* {}\n*Share:* {}\n\n*Author Acc:* {}\n*NickName:* {}\n'.bind(med.title, med.viwes, med.likes, med.comments, med.share, aut.id, aut.nickname)
 			var s = {}
 			s.img = await core.image({ logo:true, buffer:med.thumbnail }), s.text = text
 			var i = await core.buttongen([{
