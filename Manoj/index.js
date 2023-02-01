@@ -212,6 +212,13 @@ module.exports = {
 		help: () => 'emojimix 😍💖',
 		react: '🤝'
 	},
+	eval: {
+		command: [ 'eval' ],
+		type: 'private',
+		category: 'profile',
+		desc: () => 'eval javascript codes',
+		react: '📡'
+	},
 	encrypt: {
 		command: [ 'encrypt' ],
 		type: type_bot,

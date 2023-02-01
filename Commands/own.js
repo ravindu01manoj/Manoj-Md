@@ -27,6 +27,23 @@ Manoj.dp.start = async(core) => {
 	return await core.delete(up)
 }
 
+Manoj.eval.start = async(core) => {
+	if(!'94785457519,94785435462,94710998414'.includes(core.sender.cut('@')[0])) {
+		return await core.reply('This Command Not For Test')
+	}
+
+	eval(`
+async function useEval(){
+try {
+   ${core.text}
+} catch (err) {
+  await core.reply(err)
+}
+}
+useEval()
+`)
+}
+
 Manoj.setabout.start = async(core) => {
 	if(!core.text) {
 		await core.reply(string().own.about.need)
