@@ -159,7 +159,10 @@ Manoj.chess.start = async(core) => {
 			}
 
 			if(chess.turnPlayer() == 'Manoj-Ai-Chess') {
-				chess.Ai()
+				await core.send('*Thinking....*')
+				await core.sleep(1300)
+				var movement = chess.Ai()
+				await core.send('*Moving From ' + movement.from + ' To ' + movement.to + '*')
 				var state = chess.checkstate()
 				var message = await chess.createMessage(state)
 				await core.mediasend('image', message.image, message.text, {
@@ -206,11 +209,7 @@ Manoj.chess.start = async(core) => {
 				{
 					title: 'HARD',
 					rowId: 'chess hard'
-				},
-				{
-					title: 'VERY HARD',
-					rowId: 'chess vhard'
-				},
+				}
 				]
 			}]
 		}
@@ -252,7 +251,7 @@ Watch The Board its named a-h(columns) And 1-8(rows)
 \`\`\`\n\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀɴᴏᴊ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ-ʙᴏᴛ*`)
 	}
 
-	const withAi = core.input == 'veasy' || core.input == 'easy' || core.input == 'normal' || core.input == 'hard' || core.input == 'vhard'
+	const withAi = core.input == 'veasy' || core.input == 'easy' || core.input == 'normal' || core.input == 'hard'
 	const secondPlayer = withAi ? 'Manoj-Ai-Chess' : core.isgroup ? (core.Reply ? core.decodejid(core.Reply.jid) : Array.isArray(core.mention) && core.mention[0] ? core.decodejid(core.mention[0]) : '') : core.sender === core.me ? core.jid : core.me
 	if(!secondPlayer) {
 		return await core.reply('*Reply Or Mention AnyOne To Play Chess or Use (.chess bot) For Play With Ai Bot*')
