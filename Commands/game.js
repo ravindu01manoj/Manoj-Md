@@ -56,17 +56,15 @@ Manoj.xo.start = async(core) => {
 	}
 
 	const withAi = core.input == 'easy' || core.input == 'normal' || core.input == 'hard'
-	const secondPlayer = withAi ? 'Manoj-Ai-XO' : core.isgroup ? (core.Reply ? core.decodejid(core.Reply.jid) : Array.isArray(core.mention) && core.mention[0] ? core.mention[0] : '') : core.me
+	const secondPlayer = withAi ? 'Manoj-Ai-XO' : core.isgroup ? (core.Reply ? core.decodejid(core.Reply.jid) : Array.isArray(core.mention) && core.mention[0] ? core.decodejid(core.mention[0]) : '') : core.sender === core.me ? core.jid : core.me
 	if(!secondPlayer) {
 		return await core.reply('*Use Bot keyword For Play Xo With Ai Or Reply Or Mention AnyOne*')
 	}
 
 	var data = {
 		players: [core.sender, secondPlayer],
+		group: core.jid,
 		state: 'playing'
-	}
-	if(core.isgroup) {
-		data.group = core.jid
 	}
 
 	if(withAi) {
@@ -107,7 +105,8 @@ Manoj.chess.start = async(core) => {
 		}
 
 		var chess = new ChessGame(gamePosition)
-		if(chess.turnPlayer() != core.sender) {
+		var user = core.fromMe ? core.me : core.sender
+		if(chess.turnPlayer() != user) {
 			return await core.reply('*Please Wait For Your Turn*')
 		}
 
@@ -159,8 +158,63 @@ Manoj.chess.start = async(core) => {
 				return await core.send('*Game Is Over*\n\n_*Currunt Result : {}*_\n\n*Total Result*\n```{} : {}\n{} : {}\nTie : {}```'.bind('Draw', chess.chess.players[chess.chess.b].name.trim().replace(/\n/g, ' '), chess.chess.players[chess.chess.b].win, chess.chess.players[chess.chess.w].name.trim().replace(/\n/g, ' '), chess.chess.players[chess.chess.b].win, chess.chess.tie))
 			}
 
+			if(chess.turnPlayer() == 'Manoj-Ai-Chess') {
+				chess.Ai()
+				var state = chess.checkstate()
+				var message = await chess.createMessage(state)
+				await core.mediasend('image', message.image, message.text, {
+					logo: true,
+					mimetype: 'image/png',
+					thumb:true
+				})
+				if(state.state == 'Checkmate') {
+					chess.gameover({
+						winner: core.sender
+					})
+					return await core.send('*Game Is Over*\n\n_*Currunt Result : {} Win The Game*_\n\n*Total Result*\n```{} : {}\n{} : {}\nTie : {}```'.bind(core.sender, chess.chess.players[chess.chess.b].name.trim().replace(/\n/g, ' '), chess.chess.players[chess.chess.b].win, chess.chess.players[chess.chess.w].name.trim().replace(/\n/g, ' '), chess.chess.players[chess.chess.b].win, chess.chess.tie))
+
+				} else if(state.state && state.state != 'Check') {
+					chess.gameover({
+						tie: true
+					})
+					return await core.send('*Game Is Over*\n\n_*Currunt Result : {}*_\n\n*Total Result*\n```{} : {}\n{} : {}\nTie : {}```'.bind('Draw', chess.chess.players[chess.chess.b].name.trim().replace(/\n/g, ' '), chess.chess.players[chess.chess.b].win, chess.chess.players[chess.chess.w].name.trim().replace(/\n/g, ' '), chess.chess.players[chess.chess.b].win, chess.chess.tie))
+				}
+			}
+
 			return chess.update()
 		}
+	}
+
+	if(core.input && core.input.toLowerCase() == 'bot') {
+		var list = {
+			text: '\n Chass Game',
+			title: 'Select Difficulty',
+			button: 'Difficulty',
+			sec: [{
+				title: 'Difficulty Levels',
+				rows: [{
+					title: 'VERY EASY',
+					rowId: 'chess veasy'
+				}, {
+					title: 'EASY',
+					rowId: 'chess easy'
+				},
+				{
+					title: 'NORMAL',
+					rowId: 'chess normal'
+				},
+				{
+					title: 'HARD',
+					rowId: 'chess hard'
+				},
+				{
+					title: 'VERY HARD',
+					rowId: 'chess vhard'
+				},
+				]
+			}]
+		}
+		return await core.sendlist(list)
 	}
 
 	if(core.input == 'exit') {
@@ -185,6 +239,7 @@ Manoj.chess.start = async(core) => {
 		return await core.reply(
 			`*Chess Game Guidline*\n\n\`\`\`If We Think The Prefix Is .\n
 .chess - Reply Someone To Start A New Game
+.chess bot - Play Chess With Ai Bot
 .chess exit - If You Need To Exit The Game Use This Command.. But Opponent is win the game
 .chess score - It's Will Shows Your Full Score Sheet\n
 Movement \n
@@ -197,15 +252,19 @@ Watch The Board its named a-h(columns) And 1-8(rows)
 \`\`\`\n\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀɴᴏᴊ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ-ʙᴏᴛ*`)
 	}
 
-	const secondPlayer = core.isgroup ? (core.Reply ? core.decodejid(core.Reply.jid) : Array.isArray(core.mention) && core.mention[0] ? core.mention[0] : '') : core.me
+	const withAi = core.input == 'veasy' || core.input == 'easy' || core.input == 'normal' || core.input == 'hard' || core.input == 'vhard'
+	const secondPlayer = withAi ? 'Manoj-Ai-Chess' : core.isgroup ? (core.Reply ? core.decodejid(core.Reply.jid) : Array.isArray(core.mention) && core.mention[0] ? core.decodejid(core.mention[0]) : '') : core.sender === core.me ? core.jid : core.me
 	if(!secondPlayer) {
-		return await core.reply('*Reply Or Mention AnyOne To Play Chess*')
+		return await core.reply('*Reply Or Mention AnyOne To Play Chess or Use (.chess bot) For Play With Ai Bot*')
 	}
 
 	var data = {
 		players: [core.sender, secondPlayer],
 		group: core.jid,
 		state: 'playing'
+	}
+	if(withAi) {
+		data.difficulty = core.input
 	}
 
 	var isCreated = createOrUpdateChessgame(data)

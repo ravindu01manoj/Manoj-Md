@@ -8,7 +8,6 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-var { ravindumanoj_api_key } = require('../Details.js')
 var Api_url = 'https://api-ravindumanoj.ml/'
 
 var Url_Regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
@@ -156,17 +155,17 @@ Manoj.trt.start = async(core) => {
 }
 
 Manoj.screenshot.start = async(core) => {
-	if(!core.input) {
-		return await core.reply(string().screenshot.need)
-	}
+	try {
+		if(!core.input || !Url_Regex.test(core.input)) {
+			return await core.reply(string().screenshot.need)
+		}
 
-	var buff = getSiteScreenshot(core.input)
-	var linkdata = await linkPreview(buff)
-	if(!linkdata.mime || linkdata.mime.cut('/')[0] !== 'image') {
+		var url = 'https://api-ravindumanoj.ml/?code=screenshot&api=' + process.env.Ravindu_Manoj_Api + '&site=' + encodeURIComponent(core.input)
+
+		return await core.mediasend('image', url, dataDb.caption.setup(core))
+	} catch(e) {
 		return await core.reply(string().screenshot.error)
 	}
-
-	return await core.mediasend('image', buff, dataDb.caption.setup(core))
 }
 
 function urlTester(outurl) {

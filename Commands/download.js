@@ -261,9 +261,9 @@ Manoj.tiktok.start = async(core) => {
 
 			var med = data.data.results.media
 			var aut = data.data.results.author
-			var text = '*TIKTOK CONTENT DOWNLOADER*\n\n*Title:* {}\n*Viwes:* {}\n*Likes:* {}\n*Comments:* {}\n*Share:* {}\n\n*Author Acc:* {}\n*NickName:* {}\n'.bind(med.title, med.viwes, med.likes, med.comments, med.share, aut.id, aut.nickname)
 			var s = {}
-			s.img = await core.image({ logo:true, buffer:med.thumbnail }), s.text = text
+			s.text = '*TIKTOK CONTENT DOWNLOADER*\n\n*Title:* {}\n*Viwes:* {}\n*Likes:* {}\n*Comments:* {}\n*Share:* {}\n\n*Author Acc:* {}\n*NickName:* {}\n'.bind(med.title, med.viwes, med.likes, med.comments, med.share, aut.id, aut.nickname)
+			s.img = await core.image({ logo:true, buffer:med.thumbnail })
 			var i = await core.buttongen([{
 				urlButton: {
 					displayText: 'Go To TikTok',
@@ -285,9 +285,15 @@ Manoj.tiktok.start = async(core) => {
 					id: 'tiktok audio/-/' + med.audio
 				}
 			}])
-			return s.button = i.button, i.type ? await core.sendbuttonimg(s) : await core.sendButtonimg(s)
+			s.button = i.button
+			if(i.type) {
+				return await core.sendbuttonimg(s)
+			}
+
+			return await core.sendButtonimg(s)
 		}
 	} catch(e) {
+		console.log(e)
 		return await core.reply(string().tiktok.error)
 	}
 }
