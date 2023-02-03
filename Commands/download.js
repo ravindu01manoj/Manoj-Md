@@ -256,14 +256,14 @@ Manoj.tiktok.start = async(core) => {
 				}
 			})
 			if(data.data.code != 200) {
-				return await core.reply('Invalid Request' + data.data.error)
+				return await core.reply('Invalid Request ' + data.data.error)
 			}
 
 			var med = data.data.results.media
 			var aut = data.data.results.author
 			var s = {}
 			s.text = '*TIKTOK CONTENT DOWNLOADER*\n\n*Title:* {}\n*Viwes:* {}\n*Likes:* {}\n*Comments:* {}\n*Share:* {}\n\n*Author Acc:* {}\n*NickName:* {}\n'.bind(med.title, med.viwes, med.likes, med.comments, med.share, aut.id, aut.nickname)
-			s.img = await core.image({ logo:true, buffer:med.thumbnail })
+			s.img = await core.image({ buffer:med.thumbnail })
 			var i = await core.buttongen([{
 				urlButton: {
 					displayText: 'Go To TikTok',
@@ -295,6 +295,33 @@ Manoj.tiktok.start = async(core) => {
 	} catch(e) {
 		console.log(e)
 		return await core.reply(string().tiktok.error)
+	}
+}
+
+Manoj.pptiktok.start = async(core) => {
+	if(!core.input) {
+		return await core.reply('Need Tiktok UserName')
+	}
+
+	try {
+		var data = await axios({
+			method: 'GET',
+			url : Api_url,
+			params : {
+				api:process.env.Ravindu_Manoj_Api,
+				code: 'tiktok_pp',
+				username: core.input
+			}
+		})
+		if(data.data.code != 200) {
+			return await core.reply('Invalid Request ' + data.data.error)
+		}
+
+		var user = data.data.result
+		await core.mediasend('image', user.avatar, dataDb.caption.setup(core))
+
+	} catch(e) {
+		await core.reply('I Can\'t Find This User')
 	}
 }
 
@@ -415,33 +442,34 @@ Manoj.pdf.start = async(core) => {
 	}
 }
 
-Manoj.novel.start = async(core) => {
-	var getNovels = await patchNovels(core.input)
-	if(!getNovels.type) {
-		return await core.reply(string().novel.error)
-	}
+//Source Site Down
+// Manoj.novel.start = async(core) => {
+// 	var getNovels = await patchNovels(core.input)
+// 	if(!getNovels.type) {
+// 		return await core.reply(string().novel.error)
+// 	}
 
-	if(getNovels.type == 'download') {
-		try {
-			await core.mediasend('image', getNovels.image, '\n```' + getNovels.text + '```\n')
-		} catch{}
+// 	if(getNovels.type == 'download') {
+// 		try {
+// 			await core.mediasend('image', getNovels.image, '\n```' + getNovels.text + '```\n')
+// 		} catch{}
 
-		await core.send(string().novel.dl)
-		await core.send(string().novel.up)
-		var linkdata = await linkPreview(getNovels.download)
-		var FileName = randomName() + linkdata.ext
-		await core.downloadUrl(getNovels.download, FileName, async() => {
-			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
-			return removefile(FileName)
-		}, async() => {
-			return removefile(FileName)
-		})
-	}
+// 		await core.send(string().novel.dl)
+// 		await core.send(string().novel.up)
+// 		var linkdata = await linkPreview(getNovels.download)
+// 		var FileName = randomName() + linkdata.ext
+// 		await core.downloadUrl(getNovels.download, FileName, async() => {
+// 			await core.mediasend('document', FileName, linkdata.mime, {}, false, linkdata.fileName)
+// 			return removefile(FileName)
+// 		}, async() => {
+// 			return removefile(FileName)
+// 		})
+// 	}
 
-	var list = {}
-	list.title = string().novel.head
-	list.text = getNovels.type == 'main' ? string().novel.body2 : string().novel.body.bind(getNovels.select)
-	list.button = 'Select'
-	list.sec = getNovels.list
-	return await core.sendlist(list)
-}
+// 	var list = {}
+// 	list.title = string().novel.head
+// 	list.text = getNovels.type == 'main' ? string().novel.body2 : string().novel.body.bind(getNovels.select)
+// 	list.button = 'Select'
+// 	list.sec = getNovels.list
+// 	return await core.sendlist(list)
+// }

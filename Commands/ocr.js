@@ -9,9 +9,9 @@ Youtube: https://youtube.com/c/TechToFuture
 Coded By Ravindu Manoj
 */
 
-const {
-	Readimage
-} = require('../store/manoj/')
+// const {
+// 	Readimage
+// } = require('../store/manoj/')
 
 /*
 Manoj.ocr.start = async(core) => {

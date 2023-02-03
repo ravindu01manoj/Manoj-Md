@@ -11,7 +11,7 @@ Coded By Ravindu Manoj
 var Api_url = 'https://api-ravindumanoj.ml/'
 
 var Url_Regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
-const { calAge, calculater, translate, getSiteScreenshot } = Ravindu
+const { calAge, calculater, translate } = Ravindu
 Manoj.del.start = async(core) => {
 	if(!core.Reply) {
 		return

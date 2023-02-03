@@ -10,9 +10,13 @@ Coded By Ravindu Manoj
 */
 var { ravindumanoj_api_key } = require('../Details.js')
 var Api_url = 'https://api-ravindumanoj.ml/'
+const fs = require('fs')
+var ffmpeg = require('fluent-ffmpeg')
 const {
-	Youtube
+	Youtube,
+	AudioFind
 } = Ravindu
+const audiofind = new AudioFind()
 const youtube = new Youtube()
 
 Manoj.yts.start = async(core) => {
@@ -68,7 +72,7 @@ Manoj.song.start = Manoj.video.start = async(core) => {
 
 
 		var msg = {}
-		msg.img = await core.image({ logo:true, buffer:data.thumbnail })
+		msg.img = await core.image({ buffer:data.thumbnail })
 		msg.text = string().youtube[cmds].data.bind(data.url, data.title, data.Channel, data.view, data.category, data.likes, data.desc)
 
 		var dbtn = await core.buttongen(await youtube.gen(data, cmds))
@@ -120,5 +124,46 @@ Manoj.ytd.start = async(core) => {
 		return await core.sendlist(msg)
 	} catch(e) {
 		return await core.send(string().youtube.error)
+	}
+}
+
+var Find = async(buffer, core) => {
+	try {
+		await core.reply('*Identifying clip, please wait...*')
+		var data = await audiofind.identify(buffer)
+		core.input = 'https://youtu.be/' + data[0].external_metadata.youtube.vid
+		core.command = 'song'
+		await await activeCommand('song', core)
+	} catch{
+		await core.reply('*I Can Not Identify This Clip :(*')
+	}
+}
+
+Manoj.find.start = async(core) => {
+	try {
+		var data = await core.download()
+		if(data.type === 'audio') {
+			return Find(data.buffer, core)
+		}
+
+		if(data.type !== 'video') {
+			return await core.send('need Audio Clip Or Video Clip')
+		}
+
+		var datas = await core.bufferType(data)
+		datas.ext = datas.ext.replace('.', '')
+		var ext = datas.ext === 'bin' ? 'mp4' : datas.ext
+		fs.writeFileSync('./manoj.' + ext, data.buffer)
+
+		ffmpeg('./manoj.' + ext).format('mp3').save('./manoj.mp3').on('error', async err => {
+			return await core.reply('*I Can Not Find This Clip :(*')
+		}).on('end', async() => {
+			await Find(fs.readFileSync('./manoj.mp3'), core)
+			removefile('./manoj.' + ext)
+			removefile('./manoj.mp3')
+		})
+	} catch(e) {
+		console.log(e)
+		return await core.reply('*I Can Not Find This Clip :(*')
 	}
 }

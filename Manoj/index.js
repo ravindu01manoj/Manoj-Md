@@ -248,6 +248,13 @@ module.exports = {
 		desc: () => string().ffmpeg.desc,
 		react: '⬇️'
 	},
+	find: {
+		command: [ 'find', 'ytr'],
+		type: type_bot,
+		category: 'audio,video,download',
+		desc: () => 'Find Audio Or Video Clip From Youtube',
+		react: '⬇️'
+	},
 	gdrive: {
 		command: [ 'gdrive' ],
 		type: type_bot,
@@ -769,6 +776,13 @@ module.exports = {
 		type: type_bot,
 		category: 'download',
 		desc: () => string().tiktok.desc,
+		react: '⬇️'
+	},
+	pptiktok: {
+		command: [ 'pptiktok' ],
+		type: type_bot,
+		category: 'download',
+		desc: () => 'Tiktok Profile Photo From Tiktok Username',
 		react: '⬇️'
 	},
 	tiny: {

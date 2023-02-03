@@ -8,8 +8,6 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-var { ravindumanoj_api_key } = require('../Details.js')
-var Api_url = 'https://api-ravindumanoj.ml/'
 const { Rate, GetDB, GroupSetting } = Ravindu
 const { setlistgen, stringChange, changeChange, changelistgen, chatsettings, removechatslist, removestickercmdlist, addStickerCommand, removestickercmd } = GetDB
 const { rateus, addRate } = Rate
@@ -23,11 +21,11 @@ Manoj.cmd.start = async(core) => {
 		emoji,
 		button
 	} = patchAtext(dataDb.MenuHead || string().menu.header)
-	if(!core.input || core.input == 'test') {
+	if(!core.input) {
 		var category = []
 		Commands.map(command => {
 			if(command.category && command.category !== 'non') {
-				category.push(command.category)
+				category.push(...command.category.cut(','))
 			}
 		})
 		category = category.fix().fixDuplicate()
@@ -36,20 +34,12 @@ Manoj.cmd.start = async(core) => {
 		list.text = text.setup(core)
 		list.button = 'Select'
 		list.sec = makemenulist(category)
-		if(core.input == 'test') {
-			var msg_1 = await core.sendlist(list)
-			list.text = 'xdxx'
-			list.button = 'test@'
-			list.edit = msg_1.key
-			return await core.sendlist(list)
-		}
-
 		return await core.sendlist(list)
 	} else {
 		var command_list = text.setup(core) + '\n\n\n'
 		emoji = emoji.cut('/')
 		command_filter = (Commands.map(command => {
-			if(command.category === core.input) {
+			if(command.category.includes(core.input.cut(',')[0])) {
 				return command
 			}
 		})).fix()
