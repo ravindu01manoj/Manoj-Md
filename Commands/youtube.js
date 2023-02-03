@@ -128,6 +128,7 @@ Manoj.ytd.start = async(core) => {
 }
 
 Manoj.find.start = async(core) => {
+	var FileName = randomName(), ext
 	try {
 		var data = await core.download()
 		if(data.type !== 'video' && data.type !== 'audio') {
@@ -136,8 +137,7 @@ Manoj.find.start = async(core) => {
 
 		var datas = await core.bufferType(data)
 		datas.ext = datas.ext.replace('.', '')
-		var ext = datas.ext === 'bin' ? data.type === 'video' ? '.mp4' : '.mp3' : '.' + datas.ext
-		var FileName = randomName()
+		ext = datas.ext === 'bin' ? data.type === 'video' ? '.mp4' : '.mp3' : '.' + datas.ext
 
 		var clip = await toSmAudioClip(data.buffer, ext, FileName)
 
@@ -152,10 +152,11 @@ Manoj.find.start = async(core) => {
 		await await activeCommand(core.command, core)
 
 	} catch(e) {
-		removefile(FileName + ext)
-		removefile('./' + FileName + '__.mp3')
-		return await core.reply('*I Can Not Find This Clip :(*')
+	    await core.reply('*I Can Not Find This Clip :(*')
 	}
+
+	removefile(FileName + ext)
+	removefile('./' + FileName + '__.mp3')
 }
 
 async function toSmAudioClip(buffer, ext, FileName) {
