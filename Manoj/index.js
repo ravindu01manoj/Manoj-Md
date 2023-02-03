@@ -253,6 +253,7 @@ module.exports = {
 		type: type_bot,
 		category: 'audio,video,download',
 		desc: () => 'Find Audio Or Video Clip From Youtube',
+		help: () => 'You can use video,yts or ytd with this cmd',
 		react: '⬇️'
 	},
 	gdrive: {

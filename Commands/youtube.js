@@ -127,43 +127,45 @@ Manoj.ytd.start = async(core) => {
 	}
 }
 
-var Find = async(buffer, core) => {
-	try {
-		await core.reply('*Identifying clip, please wait...*')
-		var data = await audiofind.identify(buffer)
-		core.input = 'https://youtu.be/' + data[0].external_metadata.youtube.vid
-		core.command = 'song'
-		await await activeCommand('song', core)
-	} catch{
-		await core.reply('*I Can Not Identify This Clip :(*')
-	}
-}
-
 Manoj.find.start = async(core) => {
 	try {
 		var data = await core.download()
-		if(data.type === 'audio') {
-			return Find(data.buffer, core)
-		}
-
-		if(data.type !== 'video') {
+		if(data.type !== 'video' && data.type !== 'audio') {
 			return await core.send('need Audio Clip Or Video Clip')
 		}
 
 		var datas = await core.bufferType(data)
 		datas.ext = datas.ext.replace('.', '')
-		var ext = datas.ext === 'bin' ? 'mp4' : datas.ext
-		fs.writeFileSync('./manoj.' + ext, data.buffer)
+		var ext = datas.ext === 'bin' ? data.type === 'video' ? '.mp4' : '.mp3' : '.' + datas.ext
+		var FileName = randomName()
 
-		ffmpeg('./manoj.' + ext).format('mp3').save('./manoj.mp3').on('error', async err => {
-			return await core.reply('*I Can Not Find This Clip :(*')
-		}).on('end', async() => {
-			await Find(fs.readFileSync('./manoj.mp3'), core)
-			removefile('./manoj.' + ext)
-			removefile('./manoj.mp3')
-		})
+		var clip = await toSmAudioClip(data.buffer, ext, FileName)
+
+		await core.reply('*Identifying clip, please wait...*')
+		var data = await audiofind.identify(clip)
+		core.input = data[0]?.title || data[1]?.title || data[2]?.title
+		if(!core.input) {
+			throw new Error(false)
+		}
+
+		core.command = core.input == 'video' || core.input == 'yts' || core.input == 'ytd' ? core.command : 'song'
+		await await activeCommand(core.command, core)
+
 	} catch(e) {
-		console.log(e)
+		removefile(FileName + ext)
+		removefile('./' + FileName + '__.mp3')
 		return await core.reply('*I Can Not Find This Clip :(*')
 	}
+}
+
+async function toSmAudioClip(buffer, ext, FileName) {
+	return new Promise((resolve, reject) => {
+		fs.writeFileSync(FileName + ext, buffer)
+		ffmpeg(FileName + ext).setStartTime(0).setDuration(15).format('mp3').save('./' + FileName + '__.mp3')
+			.on('error', err => {
+				reject(err)
+			}).on('end', async() => {
+				resolve(fs.readFileSync('./' + FileName + '__.mp3'))
+			})
+	})
 }

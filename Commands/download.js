@@ -317,7 +317,7 @@ Manoj.pptiktok.start = async(core) => {
 			return await core.reply('Invalid Request ' + data.data.error)
 		}
 
-		var user = data.data.result
+		var user = data.data.results
 		await core.mediasend('image', user.avatar, dataDb.caption.setup(core))
 
 	} catch(e) {
