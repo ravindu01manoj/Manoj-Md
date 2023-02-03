@@ -39,7 +39,7 @@ Manoj.cmd.start = async(core) => {
 		var command_list = text.setup(core) + '\n\n\n'
 		emoji = emoji.cut('/')
 		command_filter = (Commands.map(command => {
-			if(command.category && command.category.includes(core.input)) {
+			if(command.category.includes(core.input.cut(',')[0])) {
 				return command
 			}
 		})).fix()

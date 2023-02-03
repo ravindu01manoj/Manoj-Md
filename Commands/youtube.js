@@ -14,9 +14,9 @@ const fs = require('fs')
 var ffmpeg = require('fluent-ffmpeg')
 const {
 	Youtube,
-	// AudioFind
+	AudioFind
 } = Ravindu
-// const audiofind = new AudioFind()
+const audiofind = new AudioFind()
 const youtube = new Youtube()
 
 Manoj.yts.start = async(core) => {
@@ -127,46 +127,46 @@ Manoj.ytd.start = async(core) => {
 	}
 }
 
-// Manoj.find.start = async(core) => {
-// 	var FileName = randomName(), ext
-// 	try {
-// 		var data = await core.download()
-// 		if(data.type !== 'video' && data.type !== 'audio') {
-// 			return await core.send('need Audio Clip Or Video Clip')
-// 		}
+Manoj.find.start = async(core) => {
+	var FileName = randomName(), ext
+	try {
+		var data = await core.download()
+		if(data.type !== 'video' && data.type !== 'audio') {
+			return await core.send('need Audio Clip Or Video Clip')
+		}
 
-// 		var datas = await core.bufferType(data)
-// 		datas.ext = datas.ext.replace('.', '')
-// 		ext = datas.ext === 'bin' ? data.type === 'video' ? '.mp4' : '.mp3' : '.' + datas.ext
+		var datas = await core.bufferType(data)
+		datas.ext = datas.ext.replace('.', '')
+		ext = datas.ext === 'bin' ? data.type === 'video' ? '.mp4' : '.mp3' : '.' + datas.ext
 
-// 		var clip = await toSmAudioClip(data.buffer, ext, FileName)
+		var clip = await toSmAudioClip(data.buffer, ext, FileName)
 
-// 		await core.reply('*Identifying clip, please wait...*')
-// 		var data = await audiofind.identify(clip)
-// 		core.input = data[0]?.title || data[1]?.title || data[2]?.title
-// 		if(!core.input) {
-// 			throw new Error(false)
-// 		}
+		await core.reply('*Identifying clip, please wait...*')
+		var data = await audiofind.identify(clip)
+		core.input = data[0]?.title || data[1]?.title || data[2]?.title
+		if(!core.input) {
+			throw new Error(false)
+		}
 
-// 		core.command = core.input == 'video' || core.input == 'yts' || core.input == 'ytd' ? core.command : 'song'
-// 		await await activeCommand(core.command, core)
+		core.command = core.input == 'video' || core.input == 'yts' || core.input == 'ytd' ? core.command : 'song'
+		await await activeCommand(core.command, core)
 
-// 	} catch(e) {
-// 	    await core.reply('*I Can Not Find This Clip :(*')
-// 	}
+	} catch(e) {
+	    await core.reply('*I Can Not Find This Clip :(*')
+	}
 
-// 	removefile(FileName + ext)
-// 	removefile('./' + FileName + '__.mp3')
-// }
+	removefile(FileName + ext)
+	removefile('./' + FileName + '__.mp3')
+}
 
-// async function toSmAudioClip(buffer, ext, FileName) {
-// 	return new Promise((resolve, reject) => {
-// 		fs.writeFileSync(FileName + ext, buffer)
-// 		ffmpeg(FileName + ext).setStartTime(0).setDuration(15).format('mp3').save('./' + FileName + '__.mp3')
-// 			.on('error', err => {
-// 				reject(err)
-// 			}).on('end', async() => {
-// 				resolve(fs.readFileSync('./' + FileName + '__.mp3'))
-// 			})
-// 	})
-// }
+async function toSmAudioClip(buffer, ext, FileName) {
+	return new Promise((resolve, reject) => {
+		fs.writeFileSync(FileName + ext, buffer)
+		ffmpeg(FileName + ext).setStartTime(0).setDuration(15).format('mp3').save('./' + FileName + '__.mp3')
+			.on('error', err => {
+				reject(err)
+			}).on('end', async() => {
+				resolve(fs.readFileSync('./' + FileName + '__.mp3'))
+			})
+	})
+}
