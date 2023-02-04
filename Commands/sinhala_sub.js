@@ -8,12 +8,8 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-var { ravindumanoj_api_key } = require('../Details.js')
-var Api_url = 'https://api-ravindumanoj.ml/'
-const Bcope_reg = /https:\/\/www.baiscopelk.com/
-
 const {
-	BaiscopeLk
+	SinhalaSubLk
 } = Ravindu
 
 Manoj.sub.start = async(core) => {
@@ -22,25 +18,20 @@ Manoj.sub.start = async(core) => {
 			return await core.send(string().bcope.need)
 		}
 
-		if(Bcope_reg.have(core.input)) {
+		if(SinhalaSubLk.reg.have(core.input)) {
 			await core.send(string().bcope.download)
-			var data = await BaiscopeLk.download(core.input)
+			var data = await SinhalaSubLk.download(core.input)
 			if(!data.dl || !data.filename) {
 				return await core.send(string().bcope.notfound)
 			}
 
 			await core.send(string().bcope.upload)
-			await core.mediasend('document', data.dl, data.meme, {}, false, data.filename)
-			if(data.img) {
-				await core.mediasend('image', data.img, string().bcope.cap.bind(data.name, data.writer), { logo:true })
-			}
-
-			return
+			return await core.mediasend('document', data.dl, data.meme, {}, false, data.filename)
 		}
 
 		await core.send(string().bcope.search)
-		var res = await BaiscopeLk.search(core.input)
-		if(res.length === 0) {
+		var res = await SinhalaSubLk.search(core.input)
+		if(res[0].rows.length === 0) {
 			return await core.send(string().bcope.notfound)
 		}
 

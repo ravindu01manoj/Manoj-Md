@@ -143,7 +143,7 @@ Manoj.find.start = async(core) => {
 
 		await core.reply('*Identifying clip, please wait...*')
 		var data = await audiofind.identify(clip)
-		core.command = core.input == 'video' || core.input == 'yts' || core.input == 'ytd' ? core.command : 'song'
+		core.command = core.input == 'video' || core.input == 'yts' || core.input == 'ytd' ? core.input : 'song'
 		core.input = data[0]?.title || data[1]?.title || data[2]?.title
 		if(!core.input) {
 			throw new Error(false)

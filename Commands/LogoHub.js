@@ -247,6 +247,14 @@ Manoj.rgb.start = async(core) => {
 }
 
 Manoj.png.start = async(core) => {
+	if(core.input && core.input.have('em-content.zobj')) {
+		var filepath = '/root/temp/' + randomName() + '.jpg'
+		await core.downloadAndStream(core.input, filepath, async() => {
+			await core.mediasend('image', filepath, dataDb.caption.setup(core))
+			removefile(filepath)
+		})
+	}
+
 	if(!core.input || !emojitoArray(core.input)[0]) {
 		return await core.reply(string().logo.png.need)
 	}
