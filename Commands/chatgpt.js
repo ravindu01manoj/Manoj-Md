@@ -24,7 +24,7 @@ Manoj.chatgpt.start = async(core) => {
 		}
 
 		chatgpt_session(core, 'set', data.data.results)
-		await core.reply('*From OpenAi ChatGPT*\n\n*' + data.data.results.ai_respond + '\n\n*POWERED BY MANOJ MULTI DEVICE WA_BOT*')
+		await core.reply('*From OpenAi ChatGPT*\n```\n' + data.data.results.ai_respond + '\n```\n*POWERED BY MANOJ MULTI DEVICE WA_BOT*')
 	} catch(e) {
 		await core.reply('*I Can Not Connect With OpenAi ChatGPT*')
 	}
