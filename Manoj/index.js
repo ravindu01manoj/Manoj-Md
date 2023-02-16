@@ -144,7 +144,7 @@ module.exports = {
 	chatgpt: {
 		command: [ 'chatgpt', 'openai' ],
 		type: 'private',
-		category: 'profie,main',
+		category: 'profile,main',
 		desc: () => 'Open Ai ChatGPT in whatsapp',
 		help: () => 'use ".chatgpt new" for open new chat or reply to any text with .chatgpt',
 		react: '🎓'
