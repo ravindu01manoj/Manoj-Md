@@ -141,6 +141,14 @@ module.exports = {
 		help: () => 'chess help',
 		react: '♟️'
 	},
+	chatgpt: {
+		command: [ 'chatgpt', 'openai' ],
+		type: 'private',
+		category: 'profie,main',
+		desc: () => 'Open Ai ChatGPT in whatsapp',
+		help: () => 'use ".chatgpt new" for open new chat or reply to any text with .chatgpt',
+		react: '🎓'
+	},
 	cmd: {
 		command: [ 'cmd', 'menu', 'help', 'list', 'මෙනු', 'ලිස්ට්', 'උදව්', 'කමාන්ඩ්' ],
 		type: type_bot,
@@ -166,6 +174,7 @@ module.exports = {
 		command: [ 'del' ],
 		type: type_bot,
 		category: 'profile',
+		desc : () => 'Delete Messages',
 		react: '🧽'
 	},
 	demote: {
@@ -613,7 +622,7 @@ module.exports = {
 		command: [ 'restore' ],
 		type: 'private',
 		category: 'profile',
-		desc: 'Restore Your Bot Details',
+		desc: () => 'Restore Your Bot Details',
 		react: '👑'
 	},
 	revoke: {

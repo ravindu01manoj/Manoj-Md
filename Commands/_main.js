@@ -21,7 +21,7 @@ Manoj.cmd.start = async(core) => {
 		emoji,
 		button
 	} = patchAtext(dataDb.MenuHead || string().menu.header)
-	if(!core.input) {
+	if(!core.input || !core.input.includes('#')) {
 		var category = []
 		Commands.map(command => {
 			if(command.category && command.category !== 'non') {
@@ -39,12 +39,14 @@ Manoj.cmd.start = async(core) => {
 		var command_list = text.setup(core) + '\n\n\n'
 		emoji = emoji.cut('/')
 		command_filter = (Commands.map(command => {
-			if(command.category.includes(core.input.cut(',')[0])) {
+			if(command.category.includes(core.input.cut('#')[1])) {
 				return command
 			}
 		})).fix()
 		command_filter.map(cmd => {
-			command_list += cmd.command[0] ? emoji[0] + string().menu.command + Pfix + cmd.command[0] + '\n' + (cmd.desc ? emoji[1] + string().menu.desc + cmd.desc() + '\n' : '') + (cmd.help ? emoji[2] + string().menu.help + cmd.help() + '\n\n' : '\n') : ''
+			command_list += cmd.command[0] ? emoji[0] + string().menu.command + Pfix + cmd.command[0] + '\n' +
+			               (cmd.desc ? emoji[1] + string().menu.desc + (typeof cmd.desc === 'function' ? cmd.desc() : cmd.desc) + '\n' : '') +
+						   (cmd.help ? emoji[2] + string().menu.help + (typeof cmd.help === 'function' ? cmd.help() : cmd.help) + '\n\n' : '\n') : ''
 		})
 		var msg = {}
 		msg.img = await core.image({ logo:true, buffer:await imgload(core, img, core.sender) })
@@ -230,7 +232,7 @@ Manoj.alive.start = async(core) => {
 }
 
 Manoj.notes.start = async(core) => {
-	await core.reply(string().notes.start)
+	await core.reply(string().notes.start, '🎀')
 	var {
 		text,
 		img,

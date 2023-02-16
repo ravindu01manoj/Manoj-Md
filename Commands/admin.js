@@ -8,8 +8,6 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
-var { ravindumanoj_api_key } = require('../Details.js')
-var Api_url = 'https://api-ravindumanoj.ml/'
 Manoj.kick.start = async(core) => {
 	if(!await core.amAdmin()) {
 		return await core.send(string().admin.need_admin)

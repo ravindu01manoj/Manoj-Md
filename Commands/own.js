@@ -32,16 +32,11 @@ Manoj.eval.start = async(core) => {
 		return await core.reply('This Command Not For Test')
 	}
 
-	eval(`
-async function useEval(){
-try {
-   ${core.text}
-} catch (err) {
-  await core.reply(err)
-}
-}
-useEval()
-`)
+	try {
+		eval(core.text)
+	} catch(err) {
+		await core.reply(err)
+	}
 }
 
 Manoj.setabout.start = async(core) => {
@@ -54,7 +49,7 @@ Manoj.setabout.start = async(core) => {
 }
 
 Manoj.logout.start = async(core) => {
-	if(owners.have(core.sender)) {
+	if(owners.have(core.sender.cut('@')[0].cut(':')[0])) {
 		if(core.isgroup && core.Reply.jid.cut('@')[0].cut(':')[0] != core.me.cut('@')[0]) {
 			return
 		}

@@ -17,14 +17,8 @@ Manoj.voicy.start = async(core) => {
 		}
 
 		var data = await core.download()
-		fs.writeFileSync(data.buffer, './manoj1.mp3')
-		mediasv('./manoj1.mp3').inputFormat('ogg').audioCodec('pcm_s16le').format('wav')
-			.save('./manoj.wav')
-			.on('end', async() => {
-				const text = await audiototext('./manoj.wav')
-				await core.send(string().voice.voi_text + '```' + text + '```')
-				removefile('./manoj1.mp3')
-			})
+		var text = await VoiceToText(data.buffer)
+		await core.send(string().voice.voi_text + '```' + text + '```')
 	} catch(err) {
 		return core.send(string().voice.voi_err)
 	}
@@ -37,9 +31,6 @@ Manoj.tovoice.start = async(core) => {
 
 	await core.reply(string().editor.cnvt)
 	var data = await core.download()
-	if(data.type != 'audio') {
-		return await core.send('*need audio*')
-	}
 
 	await core.mediasend('voice', data.buffer)
 }

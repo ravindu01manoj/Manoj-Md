@@ -96,11 +96,11 @@ Manoj.url.start = async(core) => {
 }
 
 Manoj.age.start = async(core) => {
-	if(!core.input) {
+	if(!core.text) {
 		return await core.reply(string().age.need)
 	}
 
-	var data = calAge(core.input)
+	var data = calAge(core.text)
 	if(!data.min || data.notdate) {
 		return await core.reply(string().age.wrong)
 	}
