@@ -213,6 +213,13 @@ module.exports = {
 		desc: () => string().own.dp.desc,
 		react: '🌇'
 	},
+	dp_full: {
+		command: [ 'dp_full'],
+		type: 'private',
+		category: 'profile',
+		desc: () => string().own.dp.desc + ' (full)',
+		react: '🌇'
+	},
 	emojimix: {
 		command: [ 'emojimix' ],
 		type: type_bot,
@@ -305,6 +312,13 @@ module.exports = {
 		type: 'admin',
 		category: 'admin',
 		desc: () => string().admin.gpdp.desc,
+		react: '📸'
+	},
+	gpdp_full: {
+		command: [ 'gpdp_full' ],
+		type: 'admin',
+		category: 'admin',
+		desc: () => string().admin.gpdp.desc + ' (full)',
 		react: '📸'
 	},
 	gpsub: {

@@ -186,7 +186,7 @@ Manoj.gpsub.start = async(core) => {
 	return await core.delete(up)
 }
 
-Manoj.gpdp.start = async(core) => {
+Manoj.gpdp.start = Manoj.gpdp_full.start = async(core) => {
 	if(!await core.amAdmin()) {
 		return await core.send(string().admin.need_admin)
 	}
@@ -201,7 +201,8 @@ Manoj.gpdp.start = async(core) => {
 	await core.profileUpdate({
 		dothis: 'up-dp',
 		url: './manoj-group.jpg',
-		user: core.jid
+		user: core.jid,
+		full_pic : core.command === 'gpdp_full'
 	})
 	await core.send(string().admin.gpdp.upd)
 	removefile('./manoj-group.jpg')

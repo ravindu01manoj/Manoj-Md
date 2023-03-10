@@ -12,7 +12,7 @@ Coded By Ravindu Manoj
 
 Manoj.antivo.start = async(core) => {
 	var data = await core.download()
-	if(data.buffer && (data.type == 'image' || data.type == 'video') && core.manoj.isviweOnce) {
+	if(data.buffer && (data.type == 'image' || data.type == 'video') && core.moredata.isviweOnce) {
 		await core.reply(string().viweOnce.doing)
 		return await core.mediasend(data.type, data.buffer, '' + data.cap)
 	}
