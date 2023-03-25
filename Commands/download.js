@@ -365,8 +365,11 @@ Manoj.truecaller.start = async(core) => {
 
 		var a = 'No-Data',
 			t = '*NUMBER INFO FROM TRUECALLER SITE*\n\n*NAME:- {}*\n\n*ABOUT:- {}*\n\n*SCORE:- {}*\n\n*NUMBER:- {}*\n\n*NUMBER TYPE:- {}*\n\n*NATIONAL FORMAT:- {}*\n\n*DIAL CODE:- {}*\n\n*COUNTRY CODE:- {}*\n\n*CARRIER :- {}*\n\n*ADDRESS:- {}*\n\n*ZIP CODE:- {}*\n\n*CITY:- {}*\n\n*TIME ZONE:- {}*'.bind(r.name || a, r.about || a, r.score || a, r.phones[0].e164Format || a, r.phones[0].numberType || a, r.phones[0].nationalFormat || a, r.phones[0].dialingCode || a, r.phones[0].countryCode || a, r.phones[0].carrier || a, r.addresses[0].address || a, r.addresses[0].zipCode || a, r.addresses[0].city || a, r.addresses[0].timeZone || a)
-		await core.send(string().truecaller.load), await core.mediasend('image', r.image ? r.image : await core.image({ buffer:string().truecaller.img, data_edit:{ text: r.phones[0].e164Format || a, threeD:true } }), t, { logo:true })
+
+		await core.send(string().truecaller.load)
+	    await core.mediasend('image', r.image ? r.image : await core.image({ buffer:string().truecaller.img, data_edit:{ text: r.phones[0].e164Format || a, threeD:true } }), t, { logo:true })
 	} catch(n) {
+		console.log(n)
 		await core.reply(string().truecaller.error)
 	}
 }

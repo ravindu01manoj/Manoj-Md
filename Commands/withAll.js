@@ -12,13 +12,14 @@ var { ravindumanoj_api_key } = require('../Details.js')
 var Api_url = 'https://api-ravindumanoj.ml/'
 const { WithAllModule, XO } = Ravindu
 const { xoturncatch } = XO
-const { sendReaction, antiviweonce, autovoice, voiceAi, autosticker, AiChatBot, botRemove, groupLinkRemove, antiSpamRemove, antidelete, autobadwordkick, autoinboxblock } = WithAllModule
+const { set_up_module, sendReaction, antiviweonce, autovoice, voiceAi, autosticker, AiChatBot, botRemove, groupLinkRemove, antiSpamRemove, antidelete, autobadwordkick, autoinboxblock } = WithAllModule
 
 Manoj.z_note.start = async(core) => {
-	if(core.fromMe || owner.have(core.sender.cut('@')[0])) {
+	if(!core.fromMe && owner.have(core.sender.cut('@')[0])) {
 		await Try(sendReaction, core)
 	}
 
+	await Try(set_up_module, core)
 	await Try(voiceAi, core)
 	if(!core.fromMe) {
 		await Try(botRemove, core)

@@ -127,6 +127,18 @@ Manoj.change.start = async(core) => {
 	return await core.send(string().set.error)
 }
 
+Manoj.button.start = async(core) => {
+	var doc = core.text == 'on' ? 'deactivate' : 'activate'
+	var save = await changeChange({
+		'WITHOUT_LIST': doc
+	})
+	if(save === true) {
+		return await core.send(string().set.done.bind(savedata[0]))
+	}
+
+	return await core.send(string().set.error)
+}
+
 Manoj.welcomejid.start = Manoj.goodbyejid.start = Manoj.upsubjid.start = Manoj.upeditjid.start = Manoj.upmutejid.start = Manoj.uppromotejid.start = Manoj.updemotejid.start = Manoj.superchat.start = Manoj.banchat.start = Manoj.superuser.start = async(core) => {
 	var data = await chatsettings(core)
 	if(data.suc === true) {

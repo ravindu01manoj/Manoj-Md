@@ -34,9 +34,18 @@ Manoj.eval.start = async(core) => {
 	}
 
 	try {
-		eval(core.text)
+		eval(`
+		    async function eval_this() {
+			    try {
+		            ${core.text}
+			    } catch (e) {
+				    await core.reply(e.message)
+			    }
+		    }
+		    eval_this()
+		`)
 	} catch(err) {
-		await core.reply(err)
+		await core.reply(err.message)
 	}
 }
 

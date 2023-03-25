@@ -15,6 +15,7 @@ module.exports = {
 		desc: () => string().admin.add.desc,
 		react: '✅'
 	},
+	
 	age: {
 		command: [ 'age' ],
 		type: type_bot,
@@ -118,6 +119,14 @@ module.exports = {
 		desc: () => string().boom.desc,
 		help: () => string().boom.help,
 		react: '🧲'
+	},
+	button: {
+		command: [ 'button', 'btn' ],
+		type: 'private',
+		category: 'profile',
+		desc: () => 'Toggel Button And List Message',
+		help: () => '.btn on or .btn off',
+		react: '🛠'
 	},
 	cal: {
 		command: [ 'cal' ],
