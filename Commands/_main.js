@@ -133,7 +133,7 @@ Manoj.button.start = async(core) => {
 		'WITHOUT_LIST': doc
 	})
 	if(save === true) {
-		return await core.send(string().set.done.bind(savedata[0]))
+		return await core.send(string().set.done.bind('WITHOUT_LIST'))
 	}
 
 	return await core.send(string().set.error)

@@ -15,7 +15,6 @@ module.exports = {
 		desc: () => string().admin.add.desc,
 		react: '✅'
 	},
-	
 	age: {
 		command: [ 'age' ],
 		type: type_bot,
