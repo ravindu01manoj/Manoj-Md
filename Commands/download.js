@@ -256,7 +256,7 @@ Manoj.tiktok.start = async(core) => {
 				}
 			})
 			if(data.data.code != 200) {
-				return await core.reply('Invalid Request ' + data.data.error)
+				return await core.reply(data.data.error)
 			}
 
 			var med = data.data.results.media
@@ -314,7 +314,7 @@ Manoj.pptiktok.start = async(core) => {
 			}
 		})
 		if(data.data.code != 200) {
-			return await core.reply('Invalid Request ' + data.data.error)
+			return await core.reply(data.data.error)
 		}
 
 		var user = data.data.results
@@ -358,18 +358,28 @@ Manoj.truecaller.start = async(core) => {
 	}
 
 	try {
-		var r = await truecaller(n, 'https://api-ravindumanoj.ml/?code=truecaller&api=' + process.env.Ravindu_Manoj_Api + '&number=')
-		if(!r) {
-			return await core.reply(string().truecaller.error)
+
+		var data = await axios({
+			method: 'GET',
+			url : Api_url,
+			params : {
+				api:process.env.Ravindu_Manoj_Api,
+				code: 'truecaller',
+				username: n
+			}
+		})
+		if(data.data.code != 200) {
+			throw new Error('Load Faild')
 		}
+
+		var r = data.data.results.data[0]
 
 		var a = 'No-Data',
 			t = '*NUMBER INFO FROM TRUECALLER SITE*\n\n*NAME:- {}*\n\n*ABOUT:- {}*\n\n*SCORE:- {}*\n\n*NUMBER:- {}*\n\n*NUMBER TYPE:- {}*\n\n*NATIONAL FORMAT:- {}*\n\n*DIAL CODE:- {}*\n\n*COUNTRY CODE:- {}*\n\n*CARRIER :- {}*\n\n*ADDRESS:- {}*\n\n*ZIP CODE:- {}*\n\n*CITY:- {}*\n\n*TIME ZONE:- {}*'.bind(r.name || a, r.about || a, r.score || a, r.phones[0].e164Format || a, r.phones[0].numberType || a, r.phones[0].nationalFormat || a, r.phones[0].dialingCode || a, r.phones[0].countryCode || a, r.phones[0].carrier || a, r.addresses[0].address || a, r.addresses[0].zipCode || a, r.addresses[0].city || a, r.addresses[0].timeZone || a)
 
 		await core.send(string().truecaller.load)
 	    await core.mediasend('image', r.image ? r.image : await core.image({ buffer:string().truecaller.img, data_edit:{ text: r.phones[0].e164Format || a, threeD:true } }), t, { logo:true })
-	} catch(n) {
-		console.log(n)
+	} catch{
 		await core.reply(string().truecaller.error)
 	}
 }

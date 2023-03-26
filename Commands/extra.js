@@ -52,9 +52,6 @@ Manoj.link.start = async(core) => {
 	try {
 		var dl = await core.send(string().link.up)
 		var linkdata = await linkPreview(core.input)
-		if(!linkdata.mime || linkdata.mime === 'text/html') {
-			return await core.reply('*I Am Not Expert For Download This Link*')
-		}
 
 		linkdata.fileName = linkdata.fileName ? linkdata.fileName : ('upload-from-url.' + (linkdata.ext || 'bin'))
 		var FileName = randomName() + (linkdata.ext || '.bin')
