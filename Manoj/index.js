@@ -228,6 +228,13 @@ module.exports = {
 		desc: () => string().own.dp.desc + ' (full)',
 		react: '🌇'
 	},
+	dp_rm: {
+		command: [ 'dp_rm'],
+		type: 'private',
+		category: 'profile',
+		desc: () => 'Remove Profile Picture',
+		react: '🌇'
+	},
 	emojimix: {
 		command: [ 'emojimix' ],
 		type: type_bot,
@@ -327,6 +334,13 @@ module.exports = {
 		type: 'admin',
 		category: 'admin',
 		desc: () => string().admin.gpdp.desc + ' (full)',
+		react: '📸'
+	},
+	gpdp_rm: {
+		command: [ 'gpdp_rm' ],
+		type: 'admin',
+		category: 'admin',
+		desc: () => 'Remove Group Display Picture',
 		react: '📸'
 	},
 	gpsub: {

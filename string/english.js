@@ -60,7 +60,8 @@ var string = {
 				desc: 'Update Group Display Picture',
 				need: '*Need image for display picture*',
 				up: '*Updating Group Display Picture*',
-				upd: '*Successfully Uptated*'
+				upd: '*Successfully Uptated*',
+				rmd: '*Successfully Removed*'
 			},
 			invite: {
 				desc: "Provides the group's invitation link.",
@@ -487,7 +488,8 @@ var string = {
 				desc: 'Update Bot Display Picture',
 				need: '*Need image for display picture*',
 				up: '*Updating Bot Display Picture*',
-				upd: '*Successfully Uptated*'
+				upd: '*Successfully Uptated*',
+				rmd: '*Successfully Removed*'
 			},
 			comm: {
 				desc: 'Show common members in two groups',

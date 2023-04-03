@@ -9,7 +9,16 @@ Youtube: https://youtube.com/c/TechToFuture
 Coded By Ravindu Manoj
 */
 
-Manoj.dp.start = Manoj.dp_full.start = async(core) => {
+Manoj.dp.start = Manoj.dp_full.start = Manoj.dp_rm.start = async(core) => {
+	if(core.command === 'dp_rm' || core.text === 'remove') {
+		await core.profileUpdate({
+			dothis: 'up-dp',
+			user: core.me,
+			remove_pic : true
+		})
+		return await core.send(string().own.dp.rmd)
+	}
+
 	var dl = await core.download()
 	if(dl.type !== 'image') {
 		return await core.send(string().own.dp.need)

@@ -186,9 +186,18 @@ Manoj.gpsub.start = async(core) => {
 	return await core.delete(up)
 }
 
-Manoj.gpdp.start = Manoj.gpdp_full.start = async(core) => {
+Manoj.gpdp.start = Manoj.gpdp_full.start = Manoj.gpdp_rm.start = async(core) => {
 	if(!await core.amAdmin()) {
 		return await core.send(string().admin.need_admin)
+	}
+
+	if(core.command === 'gpdp_rm' || core.text === 'remove') {
+		await core.profileUpdate({
+			dothis: 'up-dp',
+			user: core.jid,
+			remove_pic : true
+		})
+		return await core.send(string().admin.gpdp.rmd)
 	}
 
 	var dl = await core.download()
