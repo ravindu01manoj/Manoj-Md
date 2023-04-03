@@ -8,6 +8,7 @@ Youtube: https://youtube.com/c/TechToFuture
 
 Coded By Ravindu Manoj
 */
+const { privacy } = Ravindu
 
 Manoj.dp.start = Manoj.dp_full.start = Manoj.dp_rm.start = async(core) => {
 	if(core.command === 'dp_rm' || core.text === 'remove') {
@@ -35,6 +36,18 @@ Manoj.dp.start = Manoj.dp_full.start = Manoj.dp_rm.start = async(core) => {
 	await core.send(string().own.dp.upd)
 	removefile('./manoj-prop.png')
 	return await core.delete(up)
+}
+
+Manoj.privacy.start = async(core) => {
+	var data = privacy(core.input)
+	if(data?.text) {
+		return await core.sendlist(data)
+	}
+
+	if(data?.name && data?._value) {
+		await core.privacyUpdate(data.name, data._value)
+		return await core.reply('*Privacy Settings Updated*')
+	}
 }
 
 Manoj.eval.start = async(core) => {

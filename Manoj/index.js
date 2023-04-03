@@ -600,6 +600,13 @@ module.exports = {
 		category: 'main',
 		react: '🌛'
 	},
+	privacy: {
+		command: [ 'privacy' ],
+		type: 'private',
+		category: 'profile',
+		desc: () => 'Update The Privacy Settings',
+		react: '🔏'
+	},
 	promote: {
 		command: [ 'promote' ],
 		type: 'admin',
